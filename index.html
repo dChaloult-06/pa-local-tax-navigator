@@ -1,1233 +1,1177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PA Local Tax Navigator | Dorothy Chaloult, CPP</title>
-  <meta name="description" content="Pennsylvania local payroll tax reference for payroll professionals. PSD codes, Act 32 EIT, LST, Philadelphia Wage Tax, Pittsburgh rules, and PA–Maryland reciprocity guidance." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    /* ── DESIGN TOKENS ────────────────────────────────────────────── */
-    :root {
-      --navy:       #1B2A4A;
-      --navy-light: #253660;
-      --navy-dark:  #111C33;
-      --gold:       #C9962A;
-      --gold-light: #F0C96A;
-      --gold-pale:  #FBF3DC;
-      --cream:      #F8F6F0;
-      --white:      #FFFFFF;
-      --ink:        #1A1A2E;
-      --ink-soft:   #3D4462;
-      --muted:      #6B7394;
-      --border:     #DDD9CF;
-      --border-dark:#B8B0A0;
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PA Local Tax Navigator | Dorothy Chaloult, CPP</title>
+<meta name="description" content="Pennsylvania local payroll tax reference for payroll professionals. PSD codes, Act 32 EIT, LST, Philadelphia Wage Tax, Pittsburgh rules, and PA-Maryland reciprocity guidance."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --blue-dark:  #1E3357;
+  --blue:       #2C4A7C;
+  --blue-mid:   #3D5F96;
+  --blue-faint: #EEF2FA;
+  --blue-bdr:   #C4D0EA;
+  --gold:       #C9960A;
+  --gold-pale:  #FDF6E3;
+  --bg:         #F5F4F0;
+  --surface:    #FFFFFF;
+  --surface-2:  #F0EEE9;
+  --ink:        #111827;
+  --ink-2:      #374151;
+  --ink-3:      #6B7280;
+  --border:     #D8D4CC;
+  --border-2:   #C4BFB5;
+  --sidebar-w:  236px;
+  --header-h:   64px;
+  /* alert tokens — all WCAG AA */
+  --c-red:    #8B1A1A; --bg-red:   #FEF2F2; --br-red:   #FECACA;
+  --c-amber:  #78350F; --bg-amber: #FFFBEB; --br-amber: #FDE68A;
+  --c-slate:  #1E3357; --bg-slate: #EEF2FA; --br-slate: #C4D0EA;
+  --c-green:  #14532D; --bg-green: #F0FDF4; --br-green: #BBF7D0;
+  --radius:   7px;
+  --radius-lg:12px;
+  --sh-sm:    0 1px 3px rgba(0,0,0,.08);
+  --sh:       0 3px 10px rgba(0,0,0,.10);
+  --t:        .15s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:15px;scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;line-height:1.65;color:var(--ink);background:var(--bg);min-height:100vh}
+h1,h2,h3,h4{font-family:'Inter Tight',sans-serif;line-height:1.25;color:var(--blue-dark);font-weight:600}
+a{color:var(--blue);text-decoration:underline}
+a:hover{color:var(--blue-mid)}
+code{font-family:'Courier New',monospace;font-size:.875em;background:var(--surface-2);padding:1px 5px;border-radius:3px;color:var(--blue-dark)}
+button{font-family:'Inter',sans-serif}
 
-      /* Semantic alert tokens */
-      --alert-red:     #C0392B;
-      --alert-red-bg:  #FDF2F0;
-      --alert-red-border: #E8A89F;
-      --alert-amber:   #B07C00;
-      --alert-amber-bg:#FFFBEB;
-      --alert-amber-border: #E8D084;
-      --alert-blue:    #1A56A0;
-      --alert-blue-bg: #F0F5FF;
-      --alert-blue-border: #9DB8E8;
-      --alert-green:   #1A6B3A;
-      --alert-green-bg:#F0FAF4;
-      --alert-green-border:#8EC9A8;
-      --alert-info:    #2D4A8A;
-      --alert-info-bg: #F4F7FF;
-      --alert-info-border: #B0C4F0;
+/* TOP BAR */
+.top-bar{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:var(--blue-dark);display:flex;align-items:center;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+.top-logo{width:var(--sidebar-w);min-width:var(--sidebar-w);padding:0 20px;display:flex;align-items:center;gap:11px;border-right:1px solid rgba(255,255,255,.12)}
+.logo-pill{background:var(--gold);color:#fff;font-size:10px;font-weight:700;letter-spacing:.07em;padding:3px 9px;border-radius:4px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.logo-name{font-family:'Inter Tight',sans-serif;font-size:1.05rem;font-weight:600;color:#fff;white-space:nowrap;line-height:1.2}
+.logo-name span{color:rgba(255,255,255,.65);font-weight:400}
+.top-right{flex:1;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.top-tagline{font-size:.82rem;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:.01em}
+.top-year{font-size:.73rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif}
+.hamburger{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:8px 14px;margin-left:auto}
 
-      --radius-sm: 6px;
-      --radius:    10px;
-      --radius-lg: 16px;
-      --shadow-sm: 0 1px 4px rgba(27,42,74,.08);
-      --shadow:    0 4px 16px rgba(27,42,74,.12);
-      --shadow-lg: 0 8px 32px rgba(27,42,74,.16);
-    }
+/* LAYOUT */
+.layout{display:flex;padding-top:var(--header-h);min-height:100vh}
 
-    /* ── RESET & BASE ─────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--ink);
-      background: var(--cream);
-      min-height: 100vh;
-    }
-    a { color: var(--navy); text-decoration: underline; }
-    a:hover { color: var(--gold); }
-    h1,h2,h3,h4 { font-family: 'DM Serif Display', serif; line-height: 1.25; }
-    code, .mono { font-family: 'DM Mono', monospace; font-size: .875em; }
+/* SIDEBAR */
+.sidebar{position:fixed;top:var(--header-h);bottom:0;left:0;width:var(--sidebar-w);background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;z-index:150;display:flex;flex-direction:column}
+.nav-section{padding:10px 0 4px}
+.nav-label{font-size:.67rem;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em;padding:8px 18px 4px}
+.nav-btn{display:flex;align-items:center;gap:9px;padding:8px 18px;width:100%;text-align:left;background:none;border:none;border-left:3px solid transparent;font-size:.86rem;font-weight:500;color:var(--ink-2);cursor:pointer;transition:all var(--t);text-decoration:none}
+.nav-btn:hover{background:var(--blue-faint);color:var(--blue);border-left-color:var(--blue-mid)}
+.nav-btn.active{background:var(--blue-faint);color:var(--blue-dark);border-left-color:var(--blue);font-weight:600}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--border-2);flex-shrink:0;transition:background var(--t)}
+.nav-btn.active .nav-dot,.nav-btn:hover .nav-dot{background:var(--blue)}
+.sidebar-foot{margin-top:auto;padding:16px 18px;border-top:1px solid var(--border);font-size:.77rem;color:var(--ink-3);line-height:1.55}
+.sidebar-foot strong{color:var(--blue-dark);display:block;margin-bottom:1px;font-size:.82rem}
+.sidebar-foot .sf-title{color:var(--ink-2);font-weight:500;margin-bottom:6px;display:block;font-size:.78rem}
+.sidebar-foot a{color:var(--blue);font-size:.77rem;font-weight:500;text-decoration:underline}
 
-    /* ── HEADER ───────────────────────────────────────────────────── */
-    .site-header {
-      background: var(--navy);
-      color: var(--white);
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: var(--shadow-lg);
-    }
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 18px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .header-brand { display: flex; align-items: center; gap: 16px; }
-    .header-badge {
-      background: var(--gold);
-      color: var(--navy-dark);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .08em;
-      padding: 4px 10px;
-      border-radius: 4px;
-      text-transform: uppercase;
-    }
-    .header-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-      color: var(--white);
-      letter-spacing: -.01em;
-    }
-    .header-title span { color: var(--gold-light); }
-    .header-meta {
-      font-size: .78rem;
-      color: rgba(255,255,255,.55);
-      margin-top: 2px;
-    }
-    .header-nav { display: flex; gap: 4px; flex-wrap: wrap; }
-    .nav-btn {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      color: rgba(255,255,255,.85);
-      font-family: 'DM Sans', sans-serif;
-      font-size: .78rem;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all .18s;
-      text-decoration: none;
-    }
-    .nav-btn:hover, .nav-btn.active {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy-dark);
-    }
+/* CONTENT */
+.content{margin-left:var(--sidebar-w);flex:1;display:flex;flex-direction:column}
+.page{display:none;flex:1;padding:32px 38px 64px;max-width:980px;animation:fadeUp .18s ease}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 
-    /* ── LAYOUT ───────────────────────────────────────────────────── */
-    .main-wrap { max-width: 1200px; margin: 0 auto; padding: 40px 32px 80px; }
+/* PAGE COMPONENTS */
+.page-header{margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--border)}
+.page-header h1{font-size:1.6rem;color:var(--blue-dark)}
+.page-header p{color:var(--ink-2);font-size:.93rem;margin-top:5px;max-width:660px}
+.tag{display:inline-block;font-size:.67rem;font-weight:600;color:var(--blue);background:var(--blue-faint);border:1px solid var(--blue-bdr);padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
 
-    /* ── HERO BAND ────────────────────────────────────────────────── */
-    .hero-band {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 36px 40px;
-      margin-bottom: 36px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-band::after {
-      content: 'PA';
-      position: absolute;
-      right: -10px; top: -20px;
-      font-family: 'DM Serif Display', serif;
-      font-size: 160px;
-      color: rgba(255,255,255,.04);
-      pointer-events: none;
-      line-height: 1;
-    }
-    .hero-band h1 {
-      font-size: 2rem;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .hero-band h1 em { color: var(--gold-light); font-style: normal; }
-    .hero-band p {
-      font-size: .95rem;
-      color: rgba(255,255,255,.75);
-      max-width: 680px;
-      margin-bottom: 20px;
-    }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.2);
-      color: rgba(255,255,255,.9);
-      font-size: .73rem;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 20px;
-      letter-spacing: .03em;
-    }
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 26px;margin-bottom:18px;box-shadow:var(--sh-sm)}
+.card-title{font-size:.95rem;font-weight:600;color:var(--blue-dark);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
 
-    /* ── SECTION HEADERS ──────────────────────────────────────────── */
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
-    }
-    .section-header h2 {
-      font-size: 1.3rem;
-      color: var(--navy);
-    }
-    .section-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: .68rem;
-      font-weight: 500;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      background: var(--gold-pale);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
+/* ALERTS */
+.alert{border-radius:var(--radius);padding:12px 16px;margin-bottom:14px;border-left:4px solid;font-size:.88rem}
+.alert-title{font-weight:600;font-size:.85rem;margin-bottom:4px}
+.alert-red  {background:var(--bg-red);  border-color:var(--c-red);  color:var(--c-red)}
+.alert-amber{background:var(--bg-amber);border-color:var(--c-amber);color:var(--c-amber)}
+.alert-slate{background:var(--bg-slate);border-color:var(--c-slate);color:var(--c-slate)}
+.alert-green{background:var(--bg-green);border-color:var(--c-green);color:var(--c-green)}
+.alert p,.alert ul{color:var(--ink-2);margin-top:5px;font-size:.87rem}
+.alert ul{padding-left:17px}
+.alert li{margin-bottom:3px}
+.alert a{color:var(--blue)}
 
-    /* ── CARDS ────────────────────────────────────────────────────── */
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
-    }
-    .card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--navy);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card-title .icon {
-      width: 28px; height: 28px;
-      background: var(--navy);
-      color: var(--gold-light);
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .85rem;
-      flex-shrink: 0;
-    }
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;font-size:.87rem}
+.tbl th{background:var(--blue-dark);color:#fff;padding:8px 12px;text-align:left;font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.tbl th:first-child{border-radius:6px 0 0 0}
+.tbl th:last-child{border-radius:0 6px 0 0}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--ink-2)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:var(--bg)}
+.tbl .psd{font-family:'Courier New',monospace;font-weight:600;color:var(--blue-dark);font-size:.85rem}
+.tbl .v{font-weight:600;color:var(--blue-dark)}
+.tbl .hl td{background:var(--blue-faint)!important}
 
-    /* ── GRID LAYOUTS ─────────────────────────────────────────────── */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-    @media(max-width:900px) {
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .header-inner { flex-direction: column; align-items: flex-start; }
-      .header-nav { gap: 6px; }
-      .main-wrap { padding: 24px 16px 60px; }
-      .hero-band { padding: 24px 20px; }
-    }
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 
-    /* ── ALERT BOXES ──────────────────────────────────────────────── */
-    .alert {
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      margin-bottom: 14px;
-      border-left: 4px solid;
-      font-size: .9rem;
-    }
-    .alert-title {
-      font-weight: 600;
-      font-size: .88rem;
-      margin-bottom: 5px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .alert-red    { background: var(--alert-red-bg);    border-color: var(--alert-red);    color: var(--alert-red);    }
-    .alert-amber  { background: var(--alert-amber-bg);  border-color: var(--alert-amber);  color: var(--alert-amber);  }
-    .alert-blue   { background: var(--alert-blue-bg);   border-color: var(--alert-blue);   color: var(--alert-blue);   }
-    .alert-green  { background: var(--alert-green-bg);  border-color: var(--alert-green);  color: var(--alert-green);  }
-    .alert-info   { background: var(--alert-info-bg);   border-color: var(--alert-info);   color: var(--alert-info);   }
-    .alert p { color: var(--ink-soft); margin-top: 5px; }
-    .alert ul { color: var(--ink-soft); margin-top: 6px; padding-left: 18px; }
-    .alert li { margin-bottom: 4px; }
-    .alert a { color: var(--navy); }
+/* STEPS */
+.steps{counter-reset:step}
+.step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.step-n{width:26px;height:26px;min-width:26px;background:var(--blue-dark);color:#fff;font-size:.78rem;font-weight:600;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;flex-shrink:0}
+.step h4{font-size:.9rem;color:var(--blue-dark);margin-bottom:2px}
+.step p,.step li{font-size:.85rem;color:var(--ink-2)}
 
-    /* ── RATE TABLES ──────────────────────────────────────────────── */
-    .rate-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-    .rate-table th {
-      background: var(--navy);
-      color: var(--white);
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: 500;
-      font-size: .78rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .rate-table th:first-child { border-radius: 8px 0 0 0; }
-    .rate-table th:last-child  { border-radius: 0 8px 0 0; }
-    .rate-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-    .rate-table tr:last-child td { border-bottom: none; }
-    .rate-table tr:nth-child(even) td { background: var(--cream); }
-    .rate-table .rate-val {
-      font-family: 'DM Mono', monospace;
-      font-weight: 500;
-      color: var(--navy);
-    }
-    .rate-table .highlight-row td { background: var(--gold-pale); }
-    .rate-table .note-row td { font-style: italic; color: var(--muted); font-size: .82rem; }
+/* RULE BLOCK */
+.rule-block{background:var(--blue-dark);color:#fff;border-radius:var(--radius);padding:16px 20px;margin-bottom:14px}
+.rule-block h4{font-size:.72rem;font-weight:600;color:#B8CAE8;text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px}
+.rule-block p{font-size:.88rem;color:rgba(255,255,255,.85)}
+.formula{font-family:'Courier New',monospace;font-size:.9rem;color:#B8CAE8;margin-top:8px;padding:7px 12px;background:rgba(255,255,255,.07);border-radius:5px;display:inline-block}
 
-    /* ── DEFINITION LISTS ─────────────────────────────────────────── */
-    .def-list { display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; font-size: .9rem; }
-    .def-list dt { font-weight: 600; color: var(--navy); white-space: nowrap; }
-    .def-list dd { color: var(--ink-soft); }
+/* LINK TILES */
+.link-tile{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--blue-dark);font-size:.85rem;font-weight:500;transition:all var(--t);margin-bottom:7px}
+.link-tile:hover{background:var(--blue-dark);color:#fff;border-color:var(--blue-dark)}
+.link-tile .sub{font-size:.73rem;font-weight:400;color:var(--ink-3);display:block}
+.link-tile:hover .sub{color:rgba(255,255,255,.6)}
+.link-tile .arr{font-size:.8rem;margin-left:auto;color:var(--ink-3);flex-shrink:0}
+.link-tile:hover .arr{color:rgba(255,255,255,.7)}
 
-    /* ── RULE BLOCKS ──────────────────────────────────────────────── */
-    .rule-block {
-      background: var(--navy-dark);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 14px;
-    }
-    .rule-block h4 {
-      font-family: 'DM Mono', monospace;
-      font-size: .8rem;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 10px;
-    }
-    .rule-block p { font-size: .9rem; color: rgba(255,255,255,.85); }
-    .rule-block .formula {
-      font-family: 'DM Mono', monospace;
-      font-size: 1rem;
-      color: var(--gold-light);
-      margin-top: 10px;
-      padding: 8px 14px;
-      background: rgba(255,255,255,.06);
-      border-radius: 6px;
-    }
+/* BADGES */
+.badge{display:inline-block;font-size:.69rem;font-weight:600;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.04em}
+.b-red  {background:var(--bg-red);  color:var(--c-red);  border:1px solid var(--br-red)}
+.b-amber{background:var(--bg-amber);color:var(--c-amber);border:1px solid var(--br-amber)}
+.b-blue {background:var(--blue-faint);color:var(--blue);border:1px solid var(--blue-bdr)}
+.b-green{background:var(--bg-green);color:var(--c-green);border:1px solid var(--br-green)}
+.b-dark {background:var(--blue-dark);color:#fff;border:1px solid var(--blue-dark)}
 
-    /* ── STEP BLOCKS ──────────────────────────────────────────────── */
-    .steps { counter-reset: step; }
-    .step {
-      display: flex; gap: 16px;
-      margin-bottom: 18px;
-      align-items: flex-start;
-    }
-    .step-num {
-      counter-increment: step;
-      width: 30px; height: 30px;
-      background: var(--navy);
-      color: var(--gold-light);
-      font-family: 'DM Mono', monospace;
-      font-size: .85rem;
-      font-weight: 500;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .step-body h4 { font-size: .95rem; color: var(--navy); margin-bottom: 4px; }
-    .step-body p  { font-size: .88rem; color: var(--ink-soft); }
+/* INTERNAL TABS */
+.tab-bar{display:flex;gap:2px;flex-wrap:wrap}
+.tab-btn{padding:7px 14px;border-radius:6px 6px 0 0;border:1px solid var(--border);border-bottom:none;background:var(--bg);color:var(--ink-2);font-size:.83rem;font-weight:500;cursor:pointer;transition:all var(--t)}
+.tab-btn:hover{background:var(--surface);color:var(--blue-dark)}
+.tab-btn.active{background:var(--surface);color:var(--blue-dark);font-weight:600;box-shadow:0 -2px 0 var(--blue) inset}
+.tab-wrap{border:1px solid var(--border);border-radius:0 var(--radius-lg) var(--radius-lg) var(--radius-lg);background:var(--surface);padding:22px 24px}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 
-    /* ── LINK TILES ───────────────────────────────────────────────── */
-    .link-tile {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: var(--navy);
-      font-size: .88rem;
-      font-weight: 500;
-      transition: all .18s;
-      margin-bottom: 8px;
-    }
-    .link-tile:hover {
-      background: var(--navy);
-      color: var(--gold-light);
-      border-color: var(--navy);
-    }
-    .link-tile .lt-icon {
-      width: 24px; height: 24px;
-      background: var(--navy);
-      color: var(--gold-light);
-      border-radius: 5px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .75rem;
-      flex-shrink: 0;
-    }
-    .link-tile:hover .lt-icon { background: var(--gold); color: var(--navy-dark); }
-    .link-tile .lt-sub { font-size: .75rem; font-weight: 400; color: var(--muted); display: block; }
-    .link-tile:hover .lt-sub { color: rgba(255,255,255,.65); }
+/* COLLECTORS */
+.collector-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:11px}
+.coll-tile{padding:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all var(--t)}
+.coll-tile:hover{border-color:var(--blue);box-shadow:var(--sh)}
+.coll-tile h4{font-size:.87rem;color:var(--blue-dark);margin-bottom:3px}
+.coll-tile p{font-size:.76rem;color:var(--ink-3);margin-bottom:7px}
+.coll-tile a{font-size:.8rem;font-weight:500;color:var(--blue)}
 
-    /* ── COLLECTOR TILES ──────────────────────────────────────────── */
-    .collector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-    .collector-tile {
-      padding: 16px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: all .2s;
-    }
-    .collector-tile:hover { border-color: var(--navy); box-shadow: var(--shadow); }
-    .collector-tile h4 { font-size: .9rem; color: var(--navy); margin-bottom: 4px; }
-    .collector-tile p  { font-size: .78rem; color: var(--muted); margin-bottom: 8px; }
-    .collector-tile a  { font-size: .8rem; font-weight: 500; }
+/* UTILS */
+.mt8{margin-top:8px}.mt14{margin-top:14px}.mt18{margin-top:18px}.mt22{margin-top:22px}
+.mb8{margin-bottom:8px}.mb14{margin-bottom:14px}.mb18{margin-bottom:18px}
+.muted{color:var(--ink-3);font-size:.83rem}
+.fw6{font-weight:600}
+hr.div{border:none;border-top:1px solid var(--border);margin:18px 0}
 
-    /* ── BADGE INLINE ─────────────────────────────────────────────── */
-    .badge {
-      display: inline-block;
-      font-size: .7rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
-    .badge-red    { background: var(--alert-red-bg);    color: var(--alert-red);    border: 1px solid var(--alert-red-border); }
-    .badge-amber  { background: var(--alert-amber-bg);  color: var(--alert-amber);  border: 1px solid var(--alert-amber-border); }
-    .badge-blue   { background: var(--alert-blue-bg);   color: var(--alert-blue);   border: 1px solid var(--alert-blue-border); }
-    .badge-green  { background: var(--alert-green-bg);  color: var(--alert-green);  border: 1px solid var(--alert-green-border); }
-    .badge-navy   { background: var(--navy);             color: var(--gold-light);   border: 1px solid var(--navy); }
+/* ── LOOKUP TOOL ─────────────────────────────── */
+.paste-how{background:var(--blue-faint);border:1px solid var(--blue-bdr);border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;font-size:.84rem;color:var(--ink-2)}
+.paste-how ol{padding-left:17px;margin-top:6px}
+.paste-how li{margin-bottom:3px}
+.paste-how strong{color:var(--blue-dark)}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.8rem;font-weight:600;color:var(--blue-dark);margin-bottom:4px}
+.freq-wrap{display:flex;gap:18px;flex-wrap:wrap}
+.freq-wrap label{display:flex;align-items:center;gap:6px;font-size:.87rem;cursor:pointer;color:var(--ink-2)}
+textarea{width:100%;padding:9px 11px;border:1px solid var(--border-2);border-radius:6px;font-family:'Inter',sans-serif;font-size:.83rem;line-height:1.5;background:var(--surface);color:var(--ink);resize:vertical;min-height:120px;transition:border-color var(--t)}
+textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(44,74,124,.10)}
+.btn-primary{background:var(--blue-dark);color:#fff;border:none;border-radius:6px;padding:10px 24px;font-size:.9rem;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all var(--t)}
+.btn-primary:hover{background:var(--blue)}
+.btn-ghost{background:none;color:var(--ink-3);border:1px solid var(--border-2);border-radius:6px;padding:10px 18px;font-size:.86rem;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all var(--t);margin-left:9px}
+.btn-ghost:hover{color:var(--c-red);border-color:var(--c-red)}
+.parse-err{display:none}
+.parse-err.show{display:block}
 
-    /* ── TABS ─────────────────────────────────────────────────────── */
-    .tab-bar { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
-    .tab-btn {
-      padding: 8px 18px;
-      border-radius: 8px 8px 0 0;
-      border: 1px solid var(--border);
-      border-bottom: none;
-      background: var(--cream);
-      color: var(--ink-soft);
-      font-family: 'DM Sans', sans-serif;
-      font-size: .85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all .15s;
-    }
-    .tab-btn:hover { background: var(--white); color: var(--navy); }
-    .tab-btn.active {
-      background: var(--white);
-      color: var(--navy);
-      border-color: var(--border);
-      box-shadow: 0 -2px 0 var(--gold) inset;
-    }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-    .tab-wrap { border: 1px solid var(--border); border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg); background: var(--white); padding: 28px 32px; }
+/* RESULTS */
+.results-panel{display:none;border:2px solid var(--blue);border-radius:var(--radius-lg);background:var(--surface);overflow:hidden;margin-top:22px}
+.results-panel.show{display:block;animation:fadeUp .2s ease}
+.res-head{background:var(--blue-dark);color:#fff;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.res-head h3{font-size:1rem;color:#fff;font-weight:600}
+.res-head .res-meta{font-size:.74rem;color:rgba(255,255,255,.5)}
+.res-body{padding:20px 22px}
+.rate-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.rate-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:13px 16px;text-align:center}
+.rate-box.primary{background:var(--blue-faint);border-color:var(--blue)}
+.rate-box .rb-lbl{font-size:.7rem;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.rate-box .rb-val{font-size:1.4rem;font-weight:700;color:var(--blue-dark)}
+.rate-box .rb-sub{font-size:.74rem;color:var(--ink-3);margin-top:2px}
+.directive{background:var(--blue-dark);color:#fff;border-radius:var(--radius);padding:18px 20px;margin-bottom:16px}
+.directive h4{font-size:.7rem;font-weight:600;color:#B8CAE8;text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px}
+.d-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.86rem}
+.d-row:last-child{border-bottom:none}
+.d-lbl{color:#B8CAE8;font-weight:600;min-width:130px;flex-shrink:0;font-size:.8rem}
+.d-val{color:rgba(255,255,255,.9)}
+.lst-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:13px 16px;margin-top:8px}
+.lst-box h5{font-size:.8rem;font-weight:600;color:var(--blue-dark);margin-bottom:9px}
+.lst-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:.84rem;color:var(--ink-2)}
+.lst-row .lv{font-weight:700;color:var(--blue-dark)}
+.coll-out{margin-top:10px}
+.co{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin-bottom:8px}
+.co .co-role{font-size:.69rem;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.co .co-name{font-size:.88rem;font-weight:600;color:var(--blue-dark);margin-bottom:3px}
+.co .co-detail{font-size:.79rem;color:var(--ink-2);line-height:1.5}
+.co .co-note{font-size:.77rem;color:var(--c-green);font-style:italic;margin-top:2px}
+.action-steps{margin-top:16px}
+.a-step{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border)}
+.a-step:last-child{border-bottom:none}
+.a-num{width:24px;height:24px;min-width:24px;background:var(--blue-dark);color:#fff;font-size:.77rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.a-body h4{font-size:.88rem;color:var(--blue-dark);margin-bottom:2px;font-weight:600}
+.a-body p{font-size:.84rem;color:var(--ink-2)}
+.a-body a{font-size:.84rem}
 
-    /* ── ABOUT SECTION ────────────────────────────────────────────── */
-    .about-band {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      margin-top: 48px;
-      color: var(--white);
-    }
-    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    @media(max-width:700px) { .about-inner { grid-template-columns: 1fr; } }
-    .about-band h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 6px; }
-    .about-band h2 span { color: var(--gold-light); }
-    .about-kicker {
-      font-family: 'DM Mono', monospace;
-      font-size: .72rem;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      margin-bottom: 12px;
-    }
-    .about-band p { font-size: .9rem; color: rgba(255,255,255,.75); line-height: 1.7; margin-bottom: 12px; }
-    .about-contact {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-    }
-    .about-contact h3 { font-size: 1rem; color: var(--gold-light); margin-bottom: 14px; }
-    .contact-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: .88rem; color: rgba(255,255,255,.8); }
-    .contact-row a { color: var(--gold-light); }
-    .contact-row a:hover { color: var(--white); }
-    .contact-icon { color: var(--gold); font-size: 1rem; width: 20px; text-align: center; }
-    .expertise-list { list-style: none; padding: 0; }
-    .expertise-list li {
-      padding: 6px 0;
-      font-size: .88rem;
-      color: rgba(255,255,255,.75);
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .expertise-list li::before { content: '▸'; color: var(--gold); font-size: .8rem; }
+/* ABOUT */
+.about-hero{background:var(--blue-dark);border-radius:var(--radius-lg);padding:32px 36px;color:#fff;margin-bottom:20px}
+.about-hero h1{font-size:1.5rem;color:#fff;margin-bottom:4px}
+.about-hero .ah-title{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:14px;font-weight:400}
+.about-hero p{font-size:.9rem;color:rgba(255,255,255,.78);max-width:600px;line-height:1.65;margin-bottom:10px}
+.about-cred{list-style:none;padding:0;margin-top:14px}
+.about-cred li{padding:5px 0;font-size:.87rem;color:rgba(255,255,255,.75);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px}
+.about-cred li::before{content:'';width:5px;height:5px;border-radius:50%;background:#B8CAE8;flex-shrink:0}
+.about-linkedin{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:9px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#fff;text-decoration:none;font-size:.87rem;font-weight:500;transition:all var(--t)}
+.about-linkedin:hover{background:rgba(255,255,255,.18);color:#fff}
 
-    /* ── FOOTER ───────────────────────────────────────────────────── */
-    .site-footer {
-      background: var(--navy-dark);
-      color: rgba(255,255,255,.5);
-      text-align: center;
-      padding: 20px 32px;
-      font-size: .78rem;
-      line-height: 1.7;
-    }
-    .site-footer a { color: var(--gold-light); }
-    .footer-byline { font-weight: 600; color: rgba(255,255,255,.8); margin-bottom: 4px; }
+/* FOOTER */
+.footer{background:var(--blue-dark);color:rgba(255,255,255,.4);text-align:center;padding:16px 24px;font-size:.75rem;line-height:1.7;margin-left:var(--sidebar-w)}
+.footer strong{color:rgba(255,255,255,.7)}
+.footer a{color:rgba(255,255,255,.5)}
+.disclaimer{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--border-2);border-radius:var(--radius);padding:12px 16px;font-size:.79rem;color:var(--ink-3);margin-top:28px}
 
-    /* ── UTILITY ──────────────────────────────────────────────────── */
-    .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-    .text-muted { color: var(--muted); font-size: .85rem; }
-    .mt-0 { margin-top: 0; }
-    .mb-0 { margin-bottom: 0; }
-    .mb-16 { margin-bottom: 16px; }
-    .mb-24 { margin-bottom: 24px; }
-    .fw-600 { font-weight: 600; }
-    .disclaimer {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--muted);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      font-size: .82rem;
-      color: var(--muted);
-      margin-top: 32px;
-    }
-  </style>
+/* MOBILE */
+@media(max-width:840px){
+  :root{--sidebar-w:0px}
+  .top-logo{min-width:auto;width:auto;border-right:none;padding-left:14px}
+  .hamburger{display:flex}
+  .sidebar{width:236px;left:-236px;transition:left .22s ease}
+  .sidebar.open{left:0;box-shadow:var(--sh)}
+  .content{margin-left:0}
+  .footer{margin-left:0}
+  .page{padding:20px 16px 48px}
+  .g2,.g3,.rate-row{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-<!-- ══ HEADER ═══════════════════════════════════════════════════════ -->
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-brand">
-      <div>
-        <div class="header-title">PA Local Tax <span>Navigator</span></div>
-        <div class="header-meta">Pennsylvania Local Payroll Tax Reference · Built by Dorothy Chaloult, CPP</div>
-      </div>
-      <span class="header-badge">2025–2026</span>
-    </div>
-    <nav class="header-nav">
-      <a class="nav-btn" href="#act32">Act 32 / EIT</a>
-      <a class="nav-btn" href="#lst">LST</a>
-      <a class="nav-btn" href="#philadelphia">Philadelphia</a>
-      <a class="nav-btn" href="#pittsburgh">Pittsburgh</a>
-      <a class="nav-btn" href="#outofstate">Out-of-State</a>
-      <a class="nav-btn" href="#collectors">Collectors</a>
-      <a class="nav-btn" href="#about">About</a>
-    </nav>
+<header class="top-bar">
+  <div class="top-logo">
+    <span class="logo-pill">PA</span>
+    <div class="logo-name">Local Tax <span>Navigator</span></div>
   </div>
+  <div class="top-right">
+    <span class="top-tagline">Pennsylvania Local Payroll Tax Reference</span>
+    <span class="top-year">2025&ndash;2026</span>
+  </div>
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="3" width="20" height="2" rx="1" fill="white"/><rect y="9" width="20" height="2" rx="1" fill="white"/><rect y="15" width="20" height="2" rx="1" fill="white"/></svg>
+  </button>
 </header>
 
-<!-- ══ MAIN ══════════════════════════════════════════════════════════ -->
-<main class="main-wrap">
+<div class="layout">
+<nav class="sidebar" id="sidebar">
+  <div>
+    <div class="nav-section">
+      <div class="nav-label">Lookup Tool</div>
+      <button class="nav-btn active" onclick="go('lookup',this)"><span class="nav-dot"></span>DCED Setup Lookup</button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Reference</div>
+      <button class="nav-btn" onclick="go('act32',this)"><span class="nav-dot"></span>Act 32 / EIT</button>
+      <button class="nav-btn" onclick="go('lst',this)"><span class="nav-dot"></span>Local Services Tax</button>
+      <button class="nav-btn" onclick="go('philadelphia',this)"><span class="nav-dot"></span>Philadelphia</button>
+      <button class="nav-btn" onclick="go('pittsburgh',this)"><span class="nav-dot"></span>Pittsburgh</button>
+      <button class="nav-btn" onclick="go('outofstate',this)"><span class="nav-dot"></span>Out-of-State</button>
+      <button class="nav-btn" onclick="go('collectors',this)"><span class="nav-dot"></span>Tax Collectors</button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Info</div>
+      <button class="nav-btn" onclick="go('about',this)"><span class="nav-dot"></span>About</button>
+    </div>
+  </div>
+  <div class="sidebar-foot">
+    <strong>Dorothy Chaloult, CPP</strong>
+    <span class="sf-title">Payroll Tax Compliance &amp; Tax Technology</span>
+    <a href="https://www.linkedin.com/in/dorothy-chaloult-cpp/" target="_blank">Connect on LinkedIn</a>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <div class="hero-band">
-    <h1>Pennsylvania Local Tax <em>Reference Guide</em></h1>
-    <p>A one-stop compliance reference for payroll professionals navigating Pennsylvania's 2,500+ local tax jurisdictions. Covers Act 32 EIT, LST rules, Philadelphia and Pittsburgh special rules, cross-border PA–Maryland reciprocity, and employer setup directives — with direct links to official sources.</p>
-    <div class="hero-chips">
-      <span class="chip">Act 32 EIT</span>
-      <span class="chip">Local Services Tax</span>
-      <span class="chip">69 Tax Collection Districts</span>
-      <span class="chip">Philadelphia Wage Tax</span>
-      <span class="chip">Pittsburgh Special Rules</span>
-      <span class="chip">PA–MD Reciprocity</span>
-      <span class="chip">880000 Out-of-State Code</span>
-      <span class="chip">PSD Codes</span>
+<main class="content">
+
+<!-- ═══ LOOKUP ═══════════════════════════════════════════════ -->
+<div class="page active" id="page-lookup">
+  <div class="page-header">
+    <div class="tag">Lookup Tool</div>
+    <h1>DCED Setup Lookup</h1>
+    <p>Paste your DCED address lookup results to generate a complete payroll setup directive — including EIT withholding rate, LST per-period amounts, collector information, and employer action steps.</p>
+  </div>
+
+  <div class="alert alert-slate mb14">
+    <div class="alert-title">Start with the official DCED address search</div>
+    <p>Run your lookup at <a href="https://apps.dced.pa.gov/munstats-public/FindLocalTax.aspx" target="_blank">apps.dced.pa.gov/munstats-public/FindLocalTax.aspx</a> first, then paste the results below.</p>
+  </div>
+
+  <div class="card mb18">
+    <div class="card-title">Pay Frequency</div>
+    <p class="muted mb8">Select the employee's pay frequency to calculate the correct LST per-period withholding amount.</p>
+    <div class="freq-wrap">
+      <label><input type="radio" name="freq" value="52" checked/> Weekly (52)</label>
+      <label><input type="radio" name="freq" value="26"/> Bi-Weekly (26)</label>
+      <label><input type="radio" name="freq" value="24"/> Semi-Monthly (24)</label>
+      <label><input type="radio" name="freq" value="12"/> Monthly (12)</label>
     </div>
   </div>
 
-  <!-- ══ SECTION 1: ACT 32 / EIT ══════════════════════════════════ -->
-  <section id="act32">
-    <div class="section-header">
-      <h2>Act 32 &amp; Local Earned Income Tax (EIT)</h2>
-      <span class="section-tag">Core Framework</span>
+  <div class="card mb18">
+    <div class="card-title">Paste DCED Results</div>
+    <div class="paste-how">
+      <strong>How to copy your results from the DCED website:</strong>
+      <ol>
+        <li>Go to <a href="https://apps.dced.pa.gov/munstats-public/FindLocalTax.aspx" target="_blank">apps.dced.pa.gov/munstats-public/FindLocalTax.aspx</a> and run your address lookup</li>
+        <li>When the results page loads, click anywhere on the results page</li>
+        <li>Press <strong>Ctrl+A</strong> (Windows) or <strong>Cmd+A</strong> (Mac) to select all text on the page</li>
+        <li>Press <strong>Ctrl+C</strong> / <strong>Cmd+C</strong> to copy</li>
+        <li>Click in the box below and press <strong>Ctrl+V</strong> / <strong>Cmd+V</strong> to paste</li>
+      </ol>
     </div>
+    <div class="field">
+      <label>Paste DCED Results Here</label>
+      <textarea id="raw_paste" placeholder="Paste the copied DCED results text here. The tool will automatically extract PSD codes, EIT rates, LST amounts, exemption thresholds, and all collector information."></textarea>
+    </div>
+    <div class="parse-err alert alert-amber" id="parse-err">
+      <div class="alert-title">Could not parse results</div>
+      <p id="parse-err-msg">The pasted text did not match the expected DCED format. Check that you selected all text on the results page and try again.</p>
+    </div>
+    <button class="btn-primary" onclick="runPaste()">Parse and Generate Directive</button>
+    <button class="btn-ghost" onclick="clearAll()">Clear</button>
+  </div>
 
+  <div class="results-panel" id="results">
+    <div class="res-head">
+      <h3>Payroll Setup Directive</h3>
+      <span class="res-meta" id="res-meta"></span>
+    </div>
+    <div class="res-body" id="res-body"></div>
+  </div>
+</div>
+
+
+<!-- ═══ ACT 32 ════════════════════════════════════════════════ -->
+<div class="page" id="page-act32">
+  <div class="page-header">
+    <div class="tag">Core Framework</div>
+    <h1>Act 32 &amp; Local Earned Income Tax (EIT)</h1>
+    <p>Act 32 of 2008 consolidated Pennsylvania's local EIT collection into 69 Tax Collection Districts, effective January 1, 2012. Philadelphia and Pittsburgh operate under separate frameworks.</p>
+  </div>
+  <div class="rule-block">
+    <h4>The "Higher-Of" Withholding Rule</h4>
+    <p>For every Pennsylvania employee, compare the two rates and withhold the higher:</p>
+    <div class="formula">Withhold = MAX( Total Resident EIT Rate,  Work Location Non-Resident EIT Rate )</div>
+    <p style="margin-top:9px;font-size:.83rem;color:rgba(255,255,255,.6)">Remit to the collector for the work location TCD. The collector distributes the resident portion to the employee's home TCD.</p>
+  </div>
+  <div class="g2">
     <div class="card">
-      <div class="card-title"><span class="icon">⚙</span>What Act 32 Does</div>
-      <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px;">Act 32 of 2008 consolidated Pennsylvania's local EIT collection from 560+ separate collectors into 69 Tax Collection Districts (TCDs), effective January 1, 2012. It standardized withholding rules, forms, and remittance destinations statewide — with two notable exceptions: <strong>Philadelphia and Pittsburgh</strong> operate under their own frameworks.</p>
-
-      <div class="rule-block">
-        <h4>The "Higher-Of" Withholding Rule — Act 32 Core Mechanic</h4>
-        <p>For every Pennsylvania employee, compare the two rates and withhold the higher one:</p>
-        <div class="formula">Withhold = MAX( Total Resident EIT Rate, Work Location Non-Resident EIT Rate )</div>
-        <p style="margin-top:10px;font-size:.85rem;color:rgba(255,255,255,.6);">Remit to the tax collector for the <em>work location</em> TCD. The collector distributes the resident's share to their home TCD.</p>
-      </div>
-
-      <div class="grid-2" style="margin-top:20px;">
-        <div>
-          <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:10px;">Employer Setup Checklist</h4>
-          <div class="steps">
-            <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Collect Residency Certification Form</h4><p>Required at hire and on any address change. Captures home and work PSD codes and EIT rates.</p></div></div>
-            <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Look up both PSD codes</h4><p>Use the <a href="https://munstats.pa.gov/FindLocalTax/Default.aspx" target="_blank">DCED Address Search</a> for home and work addresses.</p></div></div>
-            <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Compare rates — withhold the higher</h4><p>Apply the "higher-of" rule. If rates are equal, withhold the resident tax.</p></div></div>
-            <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Register with work-location TCD collector</h4><p>Register with each collector for your PA worksites. Multi-site employers may elect combined monthly filing.</p></div></div>
-            <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Remit quarterly (or monthly for combined filers)</h4><p>EIT due 30 days after quarter-end. Combined filers remit monthly.</p></div></div>
-          </div>
-        </div>
-        <div>
-          <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:10px;">Key EIT Facts</h4>
-          <table class="rate-table">
-            <thead><tr><th>Item</th><th>Detail</th></tr></thead>
-            <tbody>
-              <tr><td>Rate range</td><td class="rate-val">0% – ~3.924%</td></tr>
-              <tr><td>PA state rate (separate)</td><td class="rate-val">3.07% flat</td></tr>
-              <tr><td>Number of TCDs</td><td class="rate-val">69</td></tr>
-              <tr><td>Out-of-state resident PSD</td><td class="rate-val mono">880000 / 0%</td></tr>
-              <tr><td>Residency form</td><td>DCED-CLGS-32-6</td></tr>
-              <tr><td>Taxable income base</td><td>W-2 wages, net profits</td></tr>
-              <tr><td>Philadelphia exempt?</td><td><span class="badge badge-red">Yes — separate rules</span></td></tr>
-            </tbody>
-          </table>
-          <div class="alert alert-amber" style="margin-top:14px;">
-            <div class="alert-title">⚠ Distressed Municipalities — Act 205</div>
-            <p>Some financially distressed municipalities (e.g., Scranton, Harrisburg) are authorized under Act 205 to levy higher-than-standard EIT rates. Verify your specific jurisdiction's rate via the DCED Address Search — do not assume the standard rate applies.</p>
-          </div>
-        </div>
+      <div class="card-title">Employer Setup Checklist</div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div><h4>Collect Residency Certification Form</h4><p>Form DCED-CLGS-32-6 &mdash; required at hire and on any address change. Captures home and work PSD codes and EIT rates.</p></div></div>
+        <div class="step"><div class="step-n">2</div><div><h4>Look up both PSD codes</h4><p>Use the <a href="https://apps.dced.pa.gov/munstats-public/FindLocalTax.aspx" target="_blank">DCED Address Search</a>. Use the Lookup Tool in this navigator to generate a complete setup directive.</p></div></div>
+        <div class="step"><div class="step-n">3</div><div><h4>Apply the withholding rate</h4><p>The DCED results show "Total Taxes to be Withheld" &mdash; this is already the Higher-Of result. Use that rate directly.</p></div></div>
+        <div class="step"><div class="step-n">4</div><div><h4>Register with the work-location TCD collector</h4><p>See the <button onclick="go('collectors',document.querySelector('[onclick*=collectors]'))" style="background:none;border:none;color:var(--blue);cursor:pointer;font-weight:600;padding:0;font-size:.85rem;text-decoration:underline">Tax Collectors</button> section for contact and portal links.</p></div></div>
+        <div class="step"><div class="step-n">5</div><div><h4>Remit quarterly</h4><p>EIT due 30 days after quarter-end. Multi-site employers may elect monthly combined filing with a single collector.</p></div></div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-title"><span class="icon">🔗</span>Official Sources — Act 32 / EIT</div>
-      <div class="grid-2">
-        <div>
-          <a href="https://munstats.pa.gov/FindLocalTax/Default.aspx" target="_blank" class="link-tile"><span class="lt-icon">🔍</span><span><span class="lt-sub">DCED · Official Lookup Tool</span>Find Local Tax — Address Search</span></a>
-          <a href="https://dced.pa.gov/local-government/local-income-tax-information/" target="_blank" class="link-tile"><span class="lt-icon">📋</span><span><span class="lt-sub">DCED · Act 32 Hub</span>Local Income Tax Information</span></a>
-          <a href="https://dced.pa.gov/local-government/local-income-tax-information/local-withholding-tax-faqs/" target="_blank" class="link-tile"><span class="lt-icon">❓</span><span><span class="lt-sub">DCED · Official FAQs</span>Local Withholding Tax FAQs</span></a>
-        </div>
-        <div>
-          <a href="https://dced.pa.gov/download/local-earned-income-tax-residency-certification-form/" target="_blank" class="link-tile"><span class="lt-icon">📄</span><span><span class="lt-sub">Form DCED-CLGS-32-6</span>Residency Certification Form</span></a>
-          <a href="https://dced.pa.gov/download/address-search-application-instructions-pdf/" target="_blank" class="link-tile"><span class="lt-icon">📘</span><span><span class="lt-sub">DCED PDF Guide</span>Address Search Application Instructions</span></a>
-          <a href="https://business.pa.gov/operate/hiring-workers/act-32-and-local-earned-income-tax/" target="_blank" class="link-tile"><span class="lt-icon">🏢</span><span><span class="lt-sub">PA Business One-Stop</span>Act 32 Employer Requirements</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SECTION 2: LST ═══════════════════════════════════════════ -->
-  <section id="lst">
-    <div class="section-header">
-      <h2>Local Services Tax (LST)</h2>
-      <span class="section-tag">Work-Location Tax · Separate from Act 32</span>
-    </div>
-
-    <div class="alert alert-blue mb-24">
-      <div class="alert-title">ℹ LST and Act 32 Are Separate Systems</div>
-      <p>The Local Services Tax is governed by its own statute and has its own withholding, collection, and exemption rules. Act 32 governs EIT only. Employers must handle both independently — a change in EIT setup does not automatically affect LST, and vice versa.</p>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title"><span class="icon">$</span>LST Rates &amp; Structure</div>
-        <table class="rate-table mb-16">
-          <thead><tr><th>Item</th><th>Rule</th></tr></thead>
-          <tbody>
-            <tr><td>Standard annual maximum</td><td class="rate-val">$52.00 / year</td></tr>
-            <tr><td>Basis</td><td>Work location only (not residence)</td></tr>
-            <tr><td>Rate split</td><td>Municipal + school district portions</td></tr>
-            <tr><td>Combined rate &gt; $10</td><td>Must prorate across pay periods</td></tr>
-            <tr><td>Combined rate ≤ $10</td><td>May collect as lump sum (first paycheck)</td></tr>
-            <tr><td>Rounding rule</td><td>Round <em>down</em> to nearest cent per period</td></tr>
-            <tr><td class="fw-600">Remittance due date</td><td>30 days after quarter-end</td></tr>
-          </tbody>
-        </table>
-        <div class="alert alert-amber mt-0">
-          <div class="alert-title">⚠ Some Jurisdictions Exceed $52/Year</div>
-          <p>Financially distressed municipalities authorized under special legislation may charge more than the standard $52 cap. Always verify the actual LST amount via the DCED Address Search for the specific work location — do not assume $52 applies universally.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><span class="icon">📅</span>LST Per-Period Withholding</div>
-        <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px;">When the combined LST rate exceeds $10, use this table to determine the correct per-period amount. Round <em>down</em> to the nearest cent.</p>
-        <table class="rate-table">
-          <thead><tr><th>Pay Frequency</th><th>Periods/Year</th><th>$52.00 LST</th><th>$36.00 LST</th></tr></thead>
-          <tbody>
-            <tr><td>Weekly</td><td class="rate-val">52</td><td class="rate-val">$1.00</td><td class="rate-val">$0.69</td></tr>
-            <tr><td>Bi-Weekly</td><td class="rate-val">26</td><td class="rate-val">$2.00</td><td class="rate-val">$1.38</td></tr>
-            <tr><td>Semi-Monthly</td><td class="rate-val">24</td><td class="rate-val">$2.16</td><td class="rate-val">$1.50</td></tr>
-            <tr><td>Monthly</td><td class="rate-val">12</td><td class="rate-val">$4.33</td><td class="rate-val">$3.00</td></tr>
-          </tbody>
-        </table>
-        <p class="text-muted" style="margin-top:10px;font-size:.8rem;">For non-standard LST amounts, divide the annual total by your payroll periods, rounding down to the nearest cent each period.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span class="icon">🛡</span>LST Exemptions &amp; Special Cases</div>
-      <div class="grid-2">
-        <div>
-          <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:12px;">Low-Income Exemption</h4>
-          <div class="alert alert-amber">
-            <div class="alert-title">⚠ Mandatory When LST &gt; $10/Year</div>
-            <p>Employees whose total earned income from all sources <em>within the taxing jurisdiction</em> is less than <strong>$12,000 annually</strong> must be exempted. Some jurisdictions set this threshold at <strong>$15,600</strong> — verify with the local tax collector.</p>
-            <ul>
-              <li>Employer must make LST-E form available to employees</li>
-              <li>Employee completes and files with employer — do not start withholding until form is reviewed</li>
-              <li>Employer must stop withholding upon receipt of valid LST-E</li>
-              <li>Withholding must resume if employee notifies eligibility has ended or collector instructs</li>
-            </ul>
-          </div>
-          <a href="https://dced.pa.gov/download/local-services-tax-exemption-certificate-lst-1/" target="_blank" class="link-tile" style="margin-top:10px;"><span class="lt-icon">📄</span><span><span class="lt-sub">DCED Official Form</span>LST-E Exemption Certificate</span></a>
-        </div>
-        <div>
-          <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:12px;">Multiple Employer / Concurrent Employment Rules</h4>
-          <table class="rate-table">
-            <thead><tr><th>Scenario</th><th>Action</th></tr></thead>
-            <tbody>
-              <tr><td>Employee has two jobs in different municipalities</td><td>LST due at <em>principal employment</em> location (highest pay)</td></tr>
-              <tr><td>Employee provides principal employer pay stub</td><td>Secondary employer not required to withhold LST</td></tr>
-              <tr><td>Same employer withholds LST twice</td><td>Employee may request refund from municipality after year-end</td></tr>
-              <tr><td>Employee changes jobs mid-year, LST already partially withheld</td><td>New employer withholds only the remaining balance for the year</td></tr>
-            </tbody>
-          </table>
-          <div class="alert alert-info" style="margin-top:12px;">
-            <div class="alert-title">ℹ Mid-Year Hires</div>
-            <p>LST is only owed for payroll periods in which the employee is actually employed. Pro-rate the annual LST from the hire date — do not withhold the full annual amount from a late-year hire.</p>
-          </div>
-        </div>
-      </div>
-      <div class="alert alert-blue" style="margin-top:16px;">
-        <div class="alert-title">ℹ Veteran Exemption</div>
-        <p>Veterans with a 100% permanent service-connected disability declared by the U.S. Veterans Administration, or any person serving as a member of a reserve component called to active duty during the tax year, are exempt from LST. Retain documentation.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span class="icon">🔗</span>Official LST Sources</div>
-      <div class="grid-2">
-        <a href="https://dced.pa.gov/local-government/local-income-tax-information/local-services-tax/" target="_blank" class="link-tile"><span class="lt-icon">📋</span><span><span class="lt-sub">DCED Official Page</span>Local Services Tax — Rules &amp; Rates</span></a>
-        <a href="https://dced.pa.gov/download/local-services-tax-exemption-certificate-lst-1/" target="_blank" class="link-tile"><span class="lt-icon">📄</span><span><span class="lt-sub">DCED Form LST-E</span>Low-Income Exemption Certificate</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SECTION 3: PHILADELPHIA ══════════════════════════════════ -->
-  <section id="philadelphia">
-    <div class="section-header">
-      <h2>Philadelphia Wage Tax</h2>
-      <span class="section-tag">Special Rule — Act 32 Does Not Apply</span>
-    </div>
-
-    <div class="alert alert-red mb-24">
-      <div class="alert-title">🔴 Philadelphia Is Exempt from Act 32</div>
-      <p>Philadelphia operates its own Wage Tax system independently through the Philadelphia Department of Revenue. PSD codes starting with <strong>51</strong> trigger Philadelphia rules — do not apply standard Act 32 EIT logic. Philadelphia also has <strong>no reciprocal tax agreement with any other state or municipality</strong>.</p>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title"><span class="icon">%</span>Current Wage Tax Rates</div>
-        <table class="rate-table mb-16">
-          <thead><tr><th>Status</th><th>Rate (Eff. July 1, 2025)</th><th>Prior Rate</th></tr></thead>
-          <tbody>
-            <tr class="highlight-row"><td><strong>Residents</strong></td><td class="rate-val">3.74%</td><td class="rate-val">3.75%</td></tr>
-            <tr><td><strong>Non-Residents</strong></td><td class="rate-val">3.43%</td><td class="rate-val">3.44%</td></tr>
-          </tbody>
-        </table>
-        <div class="alert alert-amber">
-          <div class="alert-title">⚠ Rates Adjust July 1 Each Year</div>
-          <p>Philadelphia City Council approves annual rate changes effective July 1. Rates are on a planned multi-year reduction schedule through 2030 (targeting 3.70% resident / 3.39% non-resident). <strong>Always verify current rates at the Philadelphia Department of Revenue before configuring payroll.</strong></p>
-        </div>
-        <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank" class="link-tile" style="margin-top:12px;"><span class="lt-icon">🔗</span><span><span class="lt-sub">Philadelphia Dept. of Revenue · Official Source</span>Wage Tax — Employer Information &amp; Current Rates</span></a>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><span class="icon">📋</span>Four Philadelphia Scenarios</div>
-        <table class="rate-table">
-          <thead><tr><th>Scenario</th><th>Rate to Apply</th><th>Remit To</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Lives in Philly, works in Philly</strong></td><td class="rate-val">3.74% (resident)</td><td>Philadelphia</td></tr>
-            <tr><td><strong>Lives in Philly, works outside PA</strong></td><td class="rate-val">3.74% (resident)</td><td>Philadelphia <em>(Act 48)</em></td></tr>
-            <tr><td><strong>Lives outside Philly, works in Philly</strong></td><td class="rate-val">3.43% (non-resident)</td><td>Philadelphia</td></tr>
-            <tr><td><strong>Lives in Philly, works in PA (non-Philly)</strong></td><td class="rate-val">3.74% (resident)</td><td>Philadelphia <em>+</em> work-TCD EIT</td></tr>
-          </tbody>
-        </table>
-        <div class="alert alert-amber" style="margin-top:14px;">
-          <div class="alert-title">⚠ Act 48 — Philly Residents Working Elsewhere in PA</div>
-          <p>Act 48 of 1994 requires ALL Pennsylvania employers — even those outside Philadelphia — to withhold the Philadelphia <em>resident</em> Wage Tax (3.74%) for employees who live in Philadelphia. This applies regardless of where the worksite is located within PA.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span class="icon">🏠</span>Remote Work &amp; Philadelphia — Convenience of Employer Doctrine</div>
-      <div class="alert alert-red">
-        <div class="alert-title">🔴 Philadelphia Applies a Convenience-of-Employer Rule</div>
-        <p>For non-residents, the Philadelphia Wage Tax applies to compensation for work performed in Philadelphia <em>and</em> for work performed outside Philadelphia at the employee's own convenience. If an employer <strong>requires</strong> an employee to work outside Philadelphia, those wages are not subject to the Wage Tax. But if the employee <strong>chooses</strong> to work remotely, Philadelphia still claims those wages. This creates significant risk for remote-work arrangements involving Philadelphia-based employers or Philadelphia-resident employees.</p>
-        <p style="margin-top:8px;"><strong>Recommendation:</strong> Document whether remote work is employer-directed or employee-elected. Consult the Philadelphia Dept. of Revenue or a qualified tax advisor for complex remote arrangements.</p>
-      </div>
-      <div class="grid-2" style="margin-top:16px;">
-        <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/income-taxes/earnings-tax-employees/" target="_blank" class="link-tile"><span class="lt-icon">🔗</span><span><span class="lt-sub">Philadelphia Dept. of Revenue</span>Earnings Tax — Employee Information</span></a>
-        <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank" class="link-tile"><span class="lt-icon">🏢</span><span><span class="lt-sub">Philadelphia Dept. of Revenue</span>Wage Tax — Employer Registration &amp; Filing</span></a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><span class="icon">🌍</span>Philadelphia &amp; Out-of-State Employees</div>
-      <div class="grid-2">
-        <div>
-          <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:10px;">NJ Residents Working in Philadelphia</h4>
-          <div class="def-list">
-            <dt>PA state tax</dt><dd>Not withheld — PA-NJ reciprocity (collect Form REV-419)</dd>
-            <dt>Philadelphia Wage Tax</dt><dd>Withheld at 3.43% non-resident rate — reciprocity does NOT cover local taxes</dd>
-            <dt>Employee credit</dt><dd>NJ resident may claim Schedule NJ-COJ credit on NJ personal return for Philadelphia tax paid</dd>
-            <dt>NJ state withholding</dt><dd>Continue withholding NJ state income tax normally</dd>
-          </div>
-        </div>
-        <div>
-          <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:10px;">MD Residents Working in Philadelphia</h4>
-          <div class="def-list">
-            <dt>PA state tax</dt><dd>Not withheld — PA-MD reciprocity (collect Form REV-419)</dd>
-            <dt>Philadelphia Wage Tax</dt><dd>Withheld at 3.43% non-resident rate</dd>
-            <dt>Employee credit</dt><dd>MD resident may claim MD Form 502CR credit on MD personal return for Philadelphia tax paid</dd>
-            <dt>MD state withholding</dt><dd>Not withheld — reciprocity applies</dd>
-          </div>
-        </div>
-      </div>
-      <div class="alert alert-info" style="margin-top:16px;">
-        <div class="alert-title">ℹ Employee Advisory — For Communication to Employees</div>
-        <p>The credits above (NJ-COJ, MD Form 502CR) are personal tax return actions the employee takes at year-end — they are <strong>not employer withholding adjustments</strong>. Some payroll systems may apply these offsets at the calculation level, but that is a system configuration decision, not a statutory employer requirement. Inform employees who live in NJ or MD and work in Philadelphia that they should consult their personal tax advisor about claiming these credits.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SECTION 4: PITTSBURGH ════════════════════════════════════ -->
-  <section id="pittsburgh">
-    <div class="section-header">
-      <h2>Pittsburgh Special Rules</h2>
-      <span class="section-tag">Allegheny County · PSD Codes 02xxxx</span>
-    </div>
-
-    <div class="alert alert-amber mb-24">
-      <div class="alert-title">⚠ Pittsburgh Has Its Own Filing and Collection Structure</div>
-      <p>Pittsburgh-area employers file EIT through Allegheny County's four Tax Collection Districts — not the statewide standard TCD structure. LST in Pittsburgh is split between city and school district, and the City of Pittsburgh has its own LST forms and portal. Additionally, Pittsburgh employers are subject to a <strong>Payroll Expense Tax</strong> that has no equivalent elsewhere in PA.</p>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title"><span class="icon">%</span>Pittsburgh Tax Rates</div>
-        <table class="rate-table">
-          <thead><tr><th>Tax</th><th>Who Pays</th><th>Rate / Amount</th><th>Collected By</th></tr></thead>
-          <tbody>
-            <tr><td>Resident EIT — City</td><td><span class="badge badge-navy">Employee (withheld)</span></td><td class="rate-val">1.00%</td><td>Jordan Tax Service</td></tr>
-            <tr><td>Resident EIT — School District</td><td><span class="badge badge-navy">Employee (withheld)</span></td><td class="rate-val">2.00%</td><td>Jordan Tax Service</td></tr>
-            <tr class="highlight-row"><td><strong>Resident EIT Total</strong></td><td><span class="badge badge-navy">Employee (withheld)</span></td><td class="rate-val">3.00%</td><td>Jordan Tax Service</td></tr>
-            <tr><td>Non-Resident EIT</td><td><span class="badge badge-navy">Employee (withheld)</span></td><td class="rate-val">1.00% (city only)</td><td>Jordan Tax Service</td></tr>
-            <tr><td>LST — City portion</td><td><span class="badge badge-navy">Employee (withheld)</span></td><td class="rate-val">$10.00 / year</td><td>Pittsburgh Finance</td></tr>
-            <tr><td>LST — School District</td><td><span class="badge badge-navy">Employee (withheld)</span></td><td class="rate-val">$42.00 / year</td><td>Pittsburgh Finance</td></tr>
-            <tr class="highlight-row"><td><strong>LST Total</strong></td><td><span class="badge badge-navy">Employee (withheld)</span></td><td class="rate-val">$52.00 / year</td><td>Pittsburgh Finance</td></tr>
-            <tr class="highlight-row"><td><strong>Payroll Expense Tax</strong></td><td><span class="badge badge-amber">Employer (NOT withheld from employees)</span></td><td class="rate-val">0.55% (5.5 mills)</td><td>Pittsburgh Finance</td></tr>
-          </tbody>
-        </table>
-        <div class="alert alert-info" style="margin-top:14px;">
-          <div class="alert-title">ℹ Payroll Expense Tax — Employer Obligation, Not Employee Withholding</div>
-          <p>The Pittsburgh Payroll Expense Tax (0.55%, expressed as 5.5 mills) is assessed on the employer — it is <strong>not withheld from employee wages and does not appear on employee paystubs</strong>. It applies to total gross taxable compensation paid to employees performing work or rendering services within Pittsburgh city limits. This is separate from and in addition to employee EIT withholding obligations. Register and file through the Pittsburgh Department of Finance.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><span class="icon">🔗</span>Pittsburgh Resources &amp; Filing</div>
-        <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px;">Pittsburgh and Philadelphia are the only PA jurisdictions where EIT remittance does not go through the standard TCD collector structure. Pittsburgh has its own tax forms and submission portal through the City's Department of Finance.</p>
-        <a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes" target="_blank" class="link-tile"><span class="lt-icon">📋</span><span><span class="lt-sub">City of Pittsburgh — Dept. of Finance · Official Source</span>Pittsburgh Tax Information — LST, EIT &amp; Payroll Expense Tax</span></a>
-        <div class="alert alert-amber" style="margin-top:14px;">
-          <div class="alert-title">⚠ Act 205 — City of York Parallel</div>
-          <p>The City of York (York County) also has an elevated EIT rate of 1.25% (city + school) under Act 205 of 1984 for distressed pension funding — separate from Pittsburgh's rules. The 1.25% applies to workers in York City specifically, not all of York County. Non-residents of York City working there pay at least 1.25%. Verify via the DCED Address Search.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SECTION 5: OUT-OF-STATE ══════════════════════════════════ -->
-  <section id="outofstate">
-    <div class="section-header">
-      <h2>Out-of-State Employees &amp; Cross-Border Rules</h2>
-      <span class="section-tag">880000 Code · PA–MD Reciprocity · Courtesy Withholding</span>
-    </div>
-
-    <div class="alert alert-blue mb-24">
-      <div class="alert-title">ℹ The Core Principle: State Reciprocity ≠ Local Tax Exemption</div>
-      <p>Pennsylvania has state-level reciprocal agreements with <strong>Indiana, Maryland, New Jersey, Ohio, Virginia, and West Virginia</strong>. These agreements apply to <em>state income tax on W-2 wages only</em>. They do not automatically exempt employees from PA local EIT or LST. Local tax rules are governed separately and must be evaluated independently.</p>
-    </div>
-
-    <!-- TAB: SCENARIO 1 -->
-    <div class="card">
-      <div class="tab-bar" id="oosTabBar">
-        <button class="tab-btn active" onclick="showTab('oos-s1', this)">Scenario 1: Out-of-State Resident / PA Worksite</button>
-        <button class="tab-btn" onclick="showTab('oos-s2', this)">Scenario 2: PA Resident / Out-of-State Employer</button>
-        <button class="tab-btn" onclick="showTab('oos-pamd', this)">PA–MD Deep Dive</button>
-      </div>
-
-      <!-- SCENARIO 1 -->
-      <div class="tab-panel active" id="oos-s1">
-        <h3 style="font-size:1.05rem;color:var(--navy);margin-bottom:14px;">Scenario 1 — Employee Lives Out of State, Works at a PA Worksite</h3>
-        <p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:16px;"><em>This scenario is defined by DCED official guidance. This includes NJ or MD residents commuting to a Pennsylvania office or job site.</em></p>
-
-        <div class="rule-block">
-          <h4>DCED Official Rule — The 880000 Code</h4>
-          <p>For any employee who lives outside Pennsylvania, the employer must:<br>
-          Set Resident PSD Code = <strong class="mono">880000</strong> &nbsp;|&nbsp; Set Total Resident EIT Rate = <strong>0%</strong><br>
-          The out-of-state resident still owes and must have withheld: the <strong>Work Location Non-Resident EIT Rate</strong> and the <strong>LST</strong> for the PA worksite municipality.</p>
-        </div>
-
-        <div class="grid-2" style="margin-top:20px;">
-          <div>
-            <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:10px;">State-by-State Summary — Out-of-State Resident Working in PA</h4>
-            <table class="rate-table">
-              <thead><tr><th>Home State</th><th>PA State Tax</th><th>PA Local EIT</th><th>PA LST</th><th>Form Required</th></tr></thead>
-              <tbody>
-                <tr><td>New Jersey</td><td class="rate-val">Not withheld</td><td>Work non-res. rate (see PA-MD section for Philly nuance)</td><td>Applies</td><td>REV-419</td></tr>
-                <tr><td>Maryland</td><td class="rate-val">Not withheld</td><td>See PA-MD Deep Dive tab</td><td>Applies</td><td>REV-419</td></tr>
-                <tr><td>Indiana, Ohio, VA, WV</td><td class="rate-val">Not withheld</td><td>Work non-res. rate</td><td>Applies</td><td>REV-419</td></tr>
-                <tr><td>Other states (e.g. NY, DE, FL)</td><td class="rate-val">Withheld normally</td><td>Work non-res. rate</td><td>Applies</td><td>None for PA</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <h4 style="font-size:.9rem;color:var(--navy);margin-bottom:10px;">NJ Special Rule — Withholding Offset</h4>
-            <div class="alert alert-blue">
-              <div class="alert-title">ℹ NJ Setup Note — PA Local EIT Reduces NJ State Withholding</div>
-              <p>For New Jersey residents working in Pennsylvania, any PA local EIT withheld reduces the amount of NJ state income tax that should be withheld from the same wages. This is a payroll setup configuration decision — confirm how your payroll system handles this offset. The employee may also claim a Schedule NJ-COJ credit on their personal NJ return for PA local taxes paid.</p>
-            </div>
-            <div class="alert alert-info" style="margin-top:10px;">
-              <div class="alert-title">ℹ Employee Advisory — NJ &amp; MD Residents</div>
-              <p>Employees living in NJ or MD who have PA local EIT withheld may be eligible for a credit on their home state personal return. This is the employee's personal return action — not an employer withholding adjustment:<br>
-              <strong>NJ residents:</strong> Schedule NJ-COJ (filed with NJ-1040)<br>
-              <strong>MD residents:</strong> Form 502CR, Part A, Line 15 (filed with MD-502)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SCENARIO 2 -->
-      <div class="tab-panel" id="oos-s2">
-        <h3 style="font-size:1.05rem;color:var(--navy);margin-bottom:14px;">Scenario 2 — PA Resident Working for an Out-of-State Employer</h3>
-        <p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:16px;"><em>This scenario covers remote workers and commuters whose employer has no physical presence in Pennsylvania.</em></p>
-
-        <div class="rule-block">
-          <h4>DCED Official Rule — Out-of-State Employers</h4>
-          <p>Out-of-state employers are <strong>NOT required</strong> to complete the PA Residency Certification Form or withhold PA local EIT for Pennsylvania resident employees. The PA resident employee remains legally responsible for their home municipality's EIT regardless of where their employer is located.</p>
-        </div>
-
-        <div class="grid-2" style="margin-top:20px;">
-          <div>
-            <div class="card-title mt-0" style="margin-top:0;"><span class="icon">✓</span>If the Employer Chooses Courtesy Withholding</div>
-            <div class="steps">
-              <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Withhold the Total Resident EIT Rate</h4><p>Use the employee's PA home municipality rate (from DCED Address Search).</p></div></div>
-              <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Set work-side PSD to 880000</h4><p>For reporting purposes, the work location is out-of-state. Use code <span class="mono">880000</span> on the work side of the Residency Certificate.</p></div></div>
-              <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Remit to the employee's home TCD collector</h4><p>Out-of-state employers may remit all PA local EIT to a single PA Tax Officer, who distributes to the correct resident collector.</p></div></div>
-            </div>
-          </div>
-          <div>
-            <div class="card-title mt-0" style="margin-top:0;"><span class="icon">⚠</span>If the Employer Does NOT Withhold</div>
-            <div class="alert alert-red">
-              <div class="alert-title">🔴 Employee Must Make Quarterly Estimated Payments</div>
-              <p>The PA resident employee is still legally obligated to pay their home municipality's EIT. Without employer withholding, the employee must:</p>
-              <ul>
-                <li>Calculate their Total Resident EIT Rate via DCED Address Search</li>
-                <li>Make <strong>quarterly estimated payments</strong> directly to their home TCD tax collector</li>
-                <li>File an annual local EIT return by April 15</li>
-                <li>Failure to pay results in interest (PA Fiscal Code rate) and a 1% penalty per month (up to 15%)</li>
-              </ul>
-            </div>
-            <div class="alert alert-amber" style="margin-top:10px;">
-              <div class="alert-title">⚠ Employer Best Practice</div>
-              <p>Even when not legally required, DCED and local collectors recommend out-of-state employers provide courtesy withholding. It reduces employee compliance burden and reduces the employer's risk of being held responsible if the employee fails to pay.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:20px;background:var(--cream);">
-          <div class="card-title"><span class="icon">🗺</span>PA Resident Working in Maryland — Specific Guidance</div>
-          <div class="grid-2">
-            <div>
-              <div class="def-list">
-                <dt>MD state tax</dt><dd><strong>Not withheld</strong> — PA-MD reciprocity. Collect Form MW507 (Line 5 for PA residents).</dd>
-                <dt>PA state tax</dt><dd>PA employer withholds normally. MD employer: courtesy withholding or employee makes quarterly PA estimates.</dd>
-                <dt>MD county local tax</dt><dd>May apply — see Form 515 trigger below.</dd>
-                <dt>PA local EIT</dt><dd>PA employer withholds normally. MD employer: courtesy withholding or quarterly estimates.</dd>
-              </div>
-            </div>
-            <div>
-              <div class="alert alert-amber">
-                <div class="alert-title">⚠ Maryland Form 515 — County Local Tax Trigger</div>
-                <p>A PA resident working in Maryland <em>may</em> be subject to Maryland county local income tax — but only if their PA home municipality imposes an EIT on Maryland residents working in PA.</p>
-                <p style="margin-top:6px;"><strong>Exception:</strong> PA residents living in <strong>York or Adams County</strong> are generally exempt from MD county local tax, because those TCDs do not levy EIT on Maryland residents — so Maryland does not reciprocate.</p>
-                <p style="margin-top:6px;">The MD employer withholds county local tax when applicable and the employee files Maryland Form 515.</p>
-              </div>
-              <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/MW507.pdf" target="_blank" class="link-tile" style="margin-top:10px;"><span class="lt-icon">📄</span><span><span class="lt-sub">Maryland Comptroller</span>Form MW507 — Withholding Exemption Certificate</span></a>
-              <a href="https://www.taxformfinder.org/maryland/form-515" target="_blank" class="link-tile"><span class="lt-icon">📄</span><span><span class="lt-sub">Maryland Comptroller</span>Form 515 — Nonresident Local Tax Return</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PA-MD DEEP DIVE -->
-      <div class="tab-panel" id="oos-pamd">
-        <h3 style="font-size:1.05rem;color:var(--navy);margin-bottom:6px;">PA–Maryland Local Tax Exemption — Deep Dive</h3>
-        <p style="font-size:.85rem;color:var(--muted);margin-bottom:18px;">This section covers one of the most complex and frequently misunderstood areas of PA local tax: the TCD-level local reciprocity between Pennsylvania and Maryland.</p>
-
-        <div class="rule-block" style="margin-bottom:16px;">
-          <h4>How the PA–MD Local Exemption Works</h4>
-          <p>The PA-MD state reciprocity agreement covers state income tax only. However, certain Pennsylvania Tax Collection Districts (TCDs) have separately agreed — through legal settlements or local ordinance — to exempt Maryland residents from local nonresident EIT withholding. This is a TCD-by-TCD determination, not a blanket statewide rule.</p>
-          <p style="margin-top:8px;color:rgba(255,255,255,.6);font-size:.85rem;">Critical: LST is NEVER covered by any PA–MD local exemption. LST applies to all workers at a PA worksite regardless of residency or TCD exemption status.</p>
-        </div>
-
-        <!-- Decision Flowchart Table -->
-        <h4 style="font-size:.92rem;color:var(--navy);margin-bottom:12px;">Decision Matrix — MD Resident Working in PA</h4>
-        <table class="rate-table mb-24">
-          <thead><tr><th>Work Location</th><th>PA EIT</th><th>PA LST</th><th>Required Action</th></tr></thead>
-          <tbody>
-            <tr class="highlight-row"><td><strong>Philadelphia (PSD 51xxxx)</strong></td><td><span class="badge badge-red">Philly Wage Tax</span></td><td>Philadelphia LST applies</td><td>Apply Philadelphia non-resident rate 3.43%. Collect REV-419 for PA state. Act 32 does NOT apply.</td></tr>
-            <tr class="highlight-row"><td><strong>York County or Adams County</strong></td><td><span class="badge badge-green">Exempt — 1981 Settlement</span></td><td><span class="badge badge-amber">LST Still Applies</span></td><td>Do NOT withhold EIT. Set Resident PSD = 880000. Withhold LST at work-location rate. Collect REV-419.</td></tr>
-            <tr><td><strong>Other TCD with MD local exemption</strong></td><td><span class="badge badge-blue">Verify with TCD</span></td><td><span class="badge badge-amber">LST Still Applies</span></td><td>Check with your work-location tax collector or confirm in your payroll system's configuration. If exempt: suppress EIT, withhold LST. Collect REV-419.</td></tr>
-            <tr><td><strong>All other PA locations (default)</strong></td><td><span class="badge badge-navy">Withhold Non-Res. Rate</span></td><td><span class="badge badge-amber">LST Applies</span></td><td>Withhold Work Non-Resident EIT + LST. Resident PSD = 880000. Collect REV-419. Employee may claim MD Form 502CR credit.</td></tr>
-          </tbody>
-        </table>
-
-        <div class="grid-2">
-          <div>
-            <div class="alert alert-green">
-              <div class="alert-title">✅ York &amp; Adams County — Confirmed Exemption</div>
-              <p>In 1981, a legal settlement was reached between certain York Adams Tax Bureau member taxing authorities and the State of Maryland. The settlement requires Maryland residents employed in York or Adams County to file and pay local tax only to Maryland. Pennsylvania employers in these counties are not required to withhold PA local EIT from Maryland residents.</p>
-              <ul>
-                <li>Applies to EIT only — LST still applies</li>
-                <li>MD residents only — does not apply to other states</li>
-                <li>York or Adams County worksites only — does not apply to other PA counties</li>
-                <li>If EIT was withheld in error, employee is entitled to a full refund from the TCD</li>
-              </ul>
-            </div>
-            <a href="https://yatb.com/non-residents" target="_blank" class="link-tile" style="margin-top:10px;"><span class="lt-icon">🔗</span><span><span class="lt-sub">York Adams Tax Bureau — Official Source</span>Maryland Resident Exemption Documentation</span></a>
-          </div>
-          <div>
-            <div class="alert alert-amber">
-              <div class="alert-title">⚠ Other TCD Exemptions — Must Verify</div>
-              <p>Beyond York and Adams, a broader set of PA Tax Collection Districts may also exempt Maryland residents from nonresident EIT. This list is maintained by individual TCDs and reflected in payroll tax calculation guides used by enterprise payroll software — it is not publicly enumerated on the DCED website.</p>
-              <p style="margin-top:8px;"><strong>How to verify for your specific worksite:</strong></p>
-              <ul>
-                <li>Contact the work-location TCD collector directly and ask whether they honor the Maryland resident EIT exemption</li>
-                <li>Review your payroll system's PA local tax configuration guide for an "MD Exempt" flag by TCD</li>
-                <li>If your system suppresses PA EIT for a Maryland employee — that may be correct configuration, not an error</li>
-              </ul>
-            </div>
-            <a href="https://dced.pa.gov/local-government/local-income-tax-information/local-withholding-tax-faqs/" target="_blank" class="link-tile" style="margin-top:10px;"><span class="lt-icon">🔗</span><span><span class="lt-sub">DCED Official FAQs</span>Local Withholding Tax — Out-of-State Rules</span></a>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:20px;background:var(--cream);">
-          <div class="card-title"><span class="icon">💬</span>The "Tit-for-Tat" Mechanism Explained</div>
-          <p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:14px;">Maryland's local response to PA local taxation is often misunderstood. Here is the precise mechanics:</p>
-          <table class="rate-table">
-            <thead><tr><th>Scenario</th><th>PA Local EIT?</th><th>MD Response</th></tr></thead>
-            <tbody>
-              <tr><td>MD resident works in PA TCD that <em>exempts</em> MD residents (e.g. York/Adams)</td><td><span class="badge badge-green">None withheld</span></td><td>MD does NOT impose MD county local tax on PA residents working in those MD-adjacent areas</td></tr>
-              <tr><td>MD resident works in PA TCD that <em>taxes</em> MD residents</td><td><span class="badge badge-navy">Withheld</span></td><td>MD reciprocates by potentially imposing MD county local tax on PA residents working in Maryland (Form 515 trigger)</td></tr>
-              <tr><td>PA resident works in MD; home PA municipality taxes MD residents</td><td>PA EIT owed on PA resident EIT return</td><td>MD withholds MD county local tax; employee files Form 515</td></tr>
-              <tr><td>PA resident works in MD; home PA municipality is York or Adams County</td><td>PA EIT owed (paid to PA)</td><td>MD does NOT withhold MD county local; no Form 515 required</td></tr>
-            </tbody>
-          </table>
-          <div class="alert alert-info" style="margin-top:14px;">
-            <div class="alert-title">ℹ Employee Advisory — MD Form 502CR Credit</div>
-            <p>When PA local EIT is withheld from a Maryland resident's wages, the employee may claim a credit on their Maryland resident income tax return using <strong>Form 502CR, Part A, Line 15</strong>. This is a personal return action — not an employer withholding adjustment. The credit offsets Maryland state and/or local tax liability on the same income. Employees should consult their personal tax advisor or the Maryland Comptroller's guidance.</p>
-          </div>
-          <div class="grid-2" style="margin-top:14px;">
-            <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502cr.pdf" target="_blank" class="link-tile"><span class="lt-icon">📄</span><span><span class="lt-sub">Maryland Comptroller</span>Form 502CR — Income Tax Credits for Individuals</span></a>
-            <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/tips/personal/tip56.pdf" target="_blank" class="link-tile"><span class="lt-icon">📘</span><span><span class="lt-sub">Maryland Comptroller — Personal Tax Tip #56</span>When You Live in One State and Work in Another</span></a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- end card wrapping tabs -->
-
-    <!-- Reciprocity Form Reference -->
-    <div class="card">
-      <div class="card-title"><span class="icon">📄</span>State Reciprocity Forms — Quick Reference</div>
-      <table class="rate-table">
-        <thead><tr><th>State</th><th>Reciprocal?</th><th>Form (Employee Files with Employer)</th><th>What It Does</th></tr></thead>
+      <div class="card-title">Key EIT Facts</div>
+      <table class="tbl mb14">
+        <thead><tr><th>Item</th><th>Detail</th></tr></thead>
         <tbody>
-          <tr><td>New Jersey</td><td><span class="badge badge-green">Yes</span></td><td>REV-419 (if working in PA) / NJ-165 (if working in NJ)</td><td>Stops incorrect state tax withholding</td></tr>
-          <tr><td>Maryland</td><td><span class="badge badge-green">Yes</span></td><td>REV-419 (if working in PA) / MW507 Line 5 (if working in MD)</td><td>Stops incorrect state tax withholding</td></tr>
-          <tr><td>Ohio</td><td><span class="badge badge-green">Yes</span></td><td>REV-419 (if working in PA) / IT-4NR (if working in OH)</td><td>Stops incorrect state tax withholding</td></tr>
-          <tr><td>Virginia</td><td><span class="badge badge-green">Yes</span></td><td>REV-419 (if working in PA) / VA-4 (if working in VA)</td><td>Stops incorrect state tax withholding</td></tr>
-          <tr><td>West Virginia</td><td><span class="badge badge-green">Yes</span></td><td>REV-419 (if working in PA) / WV/IT-104R (if working in WV)</td><td>Stops incorrect state tax withholding</td></tr>
-          <tr><td>Indiana</td><td><span class="badge badge-green">Yes</span></td><td>REV-419 (if working in PA) / WH-47 (if working in IN)</td><td>Stops incorrect state tax withholding</td></tr>
-          <tr><td>All other states</td><td><span class="badge badge-red">No</span></td><td>N/A</td><td>Standard withholding rules; employee may claim credit on resident return</td></tr>
+          <tr><td>Rate range</td><td class="v">0% &ndash; ~3.924%</td></tr>
+          <tr><td>PA state rate (separate)</td><td class="v">3.07% flat</td></tr>
+          <tr><td>Number of TCDs</td><td class="v">69</td></tr>
+          <tr><td>Out-of-state resident PSD</td><td><code>880000</code> / 0%</td></tr>
+          <tr><td>Residency form</td><td>DCED-CLGS-32-6</td></tr>
+          <tr><td>Taxable base</td><td>Earned income and net profits</td></tr>
+          <tr><td>Philadelphia</td><td><span class="badge b-red">Separate rules</span></td></tr>
         </tbody>
       </table>
-      <a href="https://www.revenue.pa.gov/FormsandPublications/FormsforIndividuals/PIT/Documents/rev-419.pdf" target="_blank" class="link-tile" style="margin-top:14px;max-width:400px;"><span class="lt-icon">📄</span><span><span class="lt-sub">PA Department of Revenue · Form REV-419</span>Employee's Nonwithholding Application Certificate</span></a>
+      <div class="alert alert-amber">
+        <div class="alert-title">Distressed Municipalities</div>
+        <p>Some municipalities may levy higher-than-standard EIT rates under Act 205. Always verify via the DCED Address Search.</p>
+      </div>
     </div>
-  </section>
-
-  <!-- ══ SECTION 6: COLLECTORS ════════════════════════════════════ -->
-  <section id="collectors">
-    <div class="section-header">
-      <h2>Tax Collectors &amp; Registration</h2>
-      <span class="section-tag">Remittance Destinations · 69 TCDs</span>
+  </div>
+  <div class="card">
+    <div class="card-title">Official Sources &mdash; Act 32 / EIT</div>
+    <div class="g2">
+      <div>
+        <a href="https://apps.dced.pa.gov/munstats-public/FindLocalTax.aspx" target="_blank" class="link-tile"><span><span class="sub">DCED &middot; Official Lookup Tool</span>Find Local Tax &mdash; Address Search</span><span class="arr">&rarr;</span></a>
+        <a href="https://dced.pa.gov/local-government/local-income-tax-information/" target="_blank" class="link-tile"><span><span class="sub">DCED &middot; Act 32 Hub</span>Local Income Tax Information</span><span class="arr">&rarr;</span></a>
+        <a href="https://dced.pa.gov/local-government/local-income-tax-information/local-withholding-tax-faqs/" target="_blank" class="link-tile"><span><span class="sub">DCED &middot; Official FAQs</span>Local Withholding Tax FAQs</span><span class="arr">&rarr;</span></a>
+      </div>
+      <div>
+        <a href="https://dced.pa.gov/download/residency-certification-form-local-earned-income-tax-withholding-pdf/?wpdmdl=57773" target="_blank" class="link-tile"><span><span class="sub">Form DCED-CLGS-32-6</span>Residency Certification Form</span><span class="arr">&rarr;</span></a>
+        <a href="https://dced.pa.gov/download/address-search-application-instructions-pdf/?wpdmdl=59375" target="_blank" class="link-tile"><span><span class="sub">DCED PDF Guide</span>Address Search Application Instructions</span><span class="arr">&rarr;</span></a>
+        <a href="https://business.pa.gov/operate/hiring-workers/act-32-and-local-earned-income-tax/" target="_blank" class="link-tile"><span><span class="sub">PA Business One-Stop</span>Act 32 Employer Requirements</span><span class="arr">&rarr;</span></a>
+      </div>
     </div>
+  </div>
+  <div class="disclaimer">For informational use only. Verify all rates at official sources before making payroll configuration decisions.</div>
+</div>
 
+
+<!-- ═══ LST ═══════════════════════════════════════════════════ -->
+<div class="page" id="page-lst">
+  <div class="page-header">
+    <div class="tag">Work-Location Tax &middot; Separate from Act 32</div>
+    <h1>Local Services Tax (LST)</h1>
+    <p>The LST is a flat annual fee for the privilege of working in a jurisdiction, governed by its own statute &mdash; separate from Act 32 &mdash; with its own withholding, collection, and exemption rules.</p>
+  </div>
+  <div class="alert alert-slate mb14">
+    <div class="alert-title">LST and Act 32 are completely separate systems</div>
+    <p>A change in EIT setup does not affect LST, and vice versa. LST is based on work location only &mdash; not the employee's residence.</p>
+  </div>
+  <div class="g2">
     <div class="card">
-      <div class="card-title"><span class="icon">🏛</span>Major PA Local Tax Collectors</div>
-      <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">Pennsylvania's 69 Tax Collection Districts contract with a small number of professional third-party collectors. Identify your worksite's TCD via the DCED Address Search to find the correct collector and remittance address.</p>
-      <div class="collector-grid">
-        <div class="collector-tile">
-          <h4>Berkheimer Tax Innovations</h4>
-          <p>Multiple PA counties — one of the largest EIT/LST collectors</p>
-          <a href="https://www.hab-inc.com/employer-services/" target="_blank">Employer Portal →</a>
-        </div>
-        <div class="collector-tile">
-          <h4>Keystone Collections Group</h4>
-          <p>Statewide coverage; significant presence in central and western PA</p>
-          <a href="https://keystonecollects.com/business/" target="_blank">Employer Portal →</a>
-        </div>
-        <div class="collector-tile">
-          <h4>Jordan Tax Service</h4>
-          <p>Southwest Allegheny County and surrounding areas</p>
-          <a href="https://www.jordantax.com/" target="_blank">Employer Portal →</a>
-        </div>
-        <div class="collector-tile">
-          <h4>Tri-State Financial Group</h4>
-          <p>Selected southeastern PA jurisdictions</p>
-          <a href="http://www.tfgtax.com/" target="_blank">Employer Portal →</a>
-        </div>
-        <div class="collector-tile">
-          <h4>Capital Tax Collection Bureau</h4>
-          <p>Dauphin County and Capital Region</p>
-          <a href="https://captax.com/" target="_blank">Employer Portal →</a>
-        </div>
-        <div class="collector-tile">
-          <h4>York Adams Tax Bureau</h4>
-          <p>York and Adams Counties — note MD resident exemption</p>
-          <a href="https://yatb.com/" target="_blank">Employer Portal →</a>
-        </div>
-        <div class="collector-tile">
-          <h4>Philadelphia Dept. of Revenue</h4>
-          <p>Philadelphia only — not part of Act 32 TCD structure</p>
-          <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank">Employer Portal →</a>
-        </div>
-        <div class="collector-tile">
-          <h4>Pittsburgh — Dept. of Finance</h4>
-          <p>City of Pittsburgh LST, EIT, and Payroll Expense Tax</p>
-          <a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes" target="_blank">Employer Portal →</a>
-        </div>
-      </div>
-      <div class="alert alert-info" style="margin-top:16px;">
-        <div class="alert-title">ℹ Always Verify Your Assigned Collector</div>
-        <p>This list covers the major collectors but is not exhaustive. Some TCDs use county-operated bureaus or other firms. Use the DCED Address Search to identify the assigned collector for any specific worksite address.</p>
+      <div class="card-title">LST Rates and Structure</div>
+      <table class="tbl mb14">
+        <thead><tr><th>Item</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Standard annual maximum</td><td class="v">$52.00 / year</td></tr>
+          <tr><td>Basis</td><td>Work location only</td></tr>
+          <tr><td>Rate split</td><td>Municipal + school district portions</td></tr>
+          <tr><td>Combined rate &gt; $10</td><td>Must prorate across all pay periods</td></tr>
+          <tr><td>Combined rate &le; $10</td><td>May collect as lump sum (first paycheck)</td></tr>
+          <tr><td>Rounding</td><td>Round down to nearest cent per period</td></tr>
+          <tr><td>Remittance due</td><td>30 days after quarter-end</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-amber">
+        <div class="alert-title">Some jurisdictions exceed $52/year</div>
+        <p>Financially distressed municipalities authorized under special legislation may assess more than the standard cap. Always verify via the DCED Address Search for the specific work location.</p>
       </div>
     </div>
-  </section>
-
-  <!-- ══ ABOUT ══════════════════════════════════════════════════════ -->
-  <section id="about">
-    <div class="about-band">
-      <div class="about-inner">
-        <div>
-          <div class="about-kicker">About This Tool</div>
-          <h2>Built by a <span>Practitioner</span><br>for Practitioners</h2>
-          <p>The PA Local Tax Navigator is a free, independent compliance reference designed for payroll professionals who work with Pennsylvania's uniquely complex local tax system. It was built to answer the questions that come up in real payroll work — not the simplified version found in generic resources.</p>
-          <p>Pennsylvania's 2,500+ local jurisdictions, 69 Tax Collection Districts, Act 32 framework, LST rules, Philadelphia and Pittsburgh special structures, and cross-border PA–Maryland reciprocity mechanics represent one of the most fragmented local tax environments in the United States. This tool is designed to make that complexity navigable.</p>
-          <p>Content is drawn from official DCED guidance, Pennsylvania statutes, individual tax collector publications, and Maryland Comptroller documentation. All information should be verified against official sources and current-year rate tables before making payroll configuration decisions.</p>
-          <ul class="expertise-list" style="margin-top:16px;">
-            <li>23+ years in payroll tax compliance</li>
-            <li>20+ years working within payroll tax calculation engine software</li>
-            <li>Certified Payroll Professional (CPP)</li>
-            <li>Deep specialization in multi-state and multi-jurisdiction payroll</li>
-            <li>Experience bridging payroll tax law and system implementation</li>
+    <div class="card">
+      <div class="card-title">Per-Period Withholding</div>
+      <p class="muted mb14">When combined LST exceeds $10/year, prorate across all pay periods. Round down to nearest cent each period.</p>
+      <table class="tbl">
+        <thead><tr><th>Pay Frequency</th><th>Periods</th><th>$52.00 LST</th><th>$36.00 LST</th></tr></thead>
+        <tbody>
+          <tr><td>Weekly</td><td class="v">52</td><td class="v">$1.00</td><td class="v">$0.69</td></tr>
+          <tr><td>Bi-Weekly</td><td class="v">26</td><td class="v">$2.00</td><td class="v">$1.38</td></tr>
+          <tr><td>Semi-Monthly</td><td class="v">24</td><td class="v">$2.16</td><td class="v">$1.50</td></tr>
+          <tr><td>Monthly</td><td class="v">12</td><td class="v">$4.33</td><td class="v">$3.00</td></tr>
+        </tbody>
+      </table>
+      <p class="muted mt8" style="font-size:.78rem">For non-standard amounts: divide annual total by pay periods and round down to the nearest cent.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">LST Exemptions and Special Cases</div>
+    <div class="g2">
+      <div>
+        <p class="fw6" style="font-size:.88rem;color:var(--blue-dark);margin-bottom:9px">Low-Income Exemption</p>
+        <div class="alert alert-amber">
+          <div class="alert-title">Mandatory when LST exceeds $10/year</div>
+          <p>Employees whose total earned income within the taxing jurisdiction is below <strong>$12,000</strong> annually must be exempted. This is the statutory minimum threshold — verify the applicable amount with the local collector for your specific jurisdiction.</p>
+          <ul>
+            <li>Make Form LST-E available to employees at hire and upon request</li>
+            <li>Employee completes and returns before withholding stops</li>
+            <li>Stop withholding upon receipt of a valid LST-E</li>
+            <li>Resume withholding if the employee notifies you their eligibility has ended</li>
           </ul>
         </div>
-        <div>
-          <div class="about-contact">
-            <h3>Dorothy Chaloult, CPP</h3>
-            <p style="color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:16px;">Payroll Tax Compliance &amp; Technology Specialist<br>Senior Practitioner · Tool Architect &amp; Creator</p>
-            <div class="contact-row"><span class="contact-icon">💼</span><a href="https://www.linkedin.com/in/dorothy-chaloult-cpp/" target="_blank">linkedin.com/in/dorothy-chaloult-cpp</a></div>
-            <div class="contact-row"><span class="contact-icon">🌐</span><span>PA Local Tax Navigator — Independent Reference Tool</span></div>
-            <div class="contact-row"><span class="contact-icon">📅</span><span>Last reviewed: May 2026 · Updated annually or upon significant regulatory change</span></div>
-            <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);">
-              <p style="font-size:.8rem;color:rgba(255,255,255,.4);">If you've found this tool useful, or have corrections or additions to suggest, connect on LinkedIn. Collaboration from fellow practitioners is welcome.</p>
-            </div>
-          </div>
-          <div class="alert alert-amber" style="margin-top:16px;">
-            <div class="alert-title">⚠ Coming Soon — Out-of-State Bulk Employee Module</div>
-            <p>A dedicated bulk queue tool for validating and setting up Pennsylvania local tax configurations across employee rosters — including out-of-state employee handling, PA-MD TCD exemption detection, and exportable compliance reports — is in development. Follow Dorothy Chaloult on LinkedIn for the announcement.</p>
-          </div>
+        <a href="https://dced.pa.gov/download/taxpayer-application-for-exemption-from-local-services-tax-lst/?wpdmdl=56757" target="_blank" class="link-tile mt8"><span><span class="sub">DCED Official Form</span>LST-E &mdash; Exemption Certificate</span><span class="arr">&rarr;</span></a>
+      </div>
+      <div>
+        <p class="fw6" style="font-size:.88rem;color:var(--blue-dark);margin-bottom:9px">Concurrent Employment and Special Cases</p>
+        <table class="tbl">
+          <thead><tr><th>Scenario</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Two jobs, different municipalities</td><td>LST due at principal employment (highest pay)</td></tr>
+            <tr><td>Employee provides principal employer pay stub</td><td>Secondary employer not required to withhold</td></tr>
+            <tr><td>Mid-year hire</td><td>Prorate LST from hire date only</td></tr>
+            <tr><td>Employee separates mid-year</td><td>Withhold only for periods employed</td></tr>
+          </tbody>
+        </table>
+        <div class="alert alert-slate mt14">
+          <div class="alert-title">Veteran exemption</div>
+          <p>Veterans with a 100% permanent service-connected disability, or reserve members called to active duty during the tax year, are exempt from LST.</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- DISCLAIMER -->
-  <div class="disclaimer">
-    <strong>For informational use only.</strong> This tool is a practitioner reference and does not constitute legal, tax, or accounting advice. Tax rates, rules, and forms change regularly. Always verify current requirements at official sources — DCED (<a href="https://dced.pa.gov" target="_blank">dced.pa.gov</a>), the Pennsylvania Department of Revenue (<a href="https://www.revenue.pa.gov" target="_blank">revenue.pa.gov</a>), and the Philadelphia and Pittsburgh Departments of Revenue — before making payroll configuration decisions. The architect and creator of this tool assumes no liability for errors, omissions, or reliance on information contained herein.
   </div>
+  <div class="card">
+    <div class="card-title">Official LST Sources</div>
+    <div class="g2">
+      <a href="https://dced.pa.gov/local-government/local-income-tax-information/local-services-tax/" target="_blank" class="link-tile"><span><span class="sub">DCED Official Page</span>Local Services Tax &mdash; Rules and Rates</span><span class="arr">&rarr;</span></a>
+      <a href="https://dced.pa.gov/download/taxpayer-application-for-exemption-from-local-services-tax-lst/?wpdmdl=56757" target="_blank" class="link-tile"><span><span class="sub">DCED Form LST-E</span>Low-Income Exemption Certificate</span><span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+  <div class="disclaimer">For informational use only. Verify all rates at official sources before making payroll configuration decisions.</div>
+</div>
+
+
+<!-- ═══ PHILADELPHIA ══════════════════════════════════════════ -->
+<div class="page" id="page-philadelphia">
+  <div class="page-header">
+    <div class="tag">Special Rule &mdash; Act 32 Does Not Apply</div>
+    <h1>Philadelphia Wage Tax</h1>
+    <p>Philadelphia operates its own Wage Tax system through the Philadelphia Department of Revenue. It has no reciprocal tax agreement with any state or municipality.</p>
+  </div>
+  <div class="alert alert-red mb14">
+    <div class="alert-title">Philadelphia is exempt from Act 32</div>
+    <p>PSD codes starting with <strong>51</strong> trigger Philadelphia rules. Do not apply standard Act 32 EIT logic.</p>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Current Wage Tax Rates</div>
+      <table class="tbl mb14">
+        <thead><tr><th>Status</th><th>Rate</th><th>Prior Rate</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td><strong>Residents</strong></td><td class="v">3.74% <span style="font-size:.75rem;font-weight:400;color:var(--ink-3)">(Eff. July 1, 2025)</span></td><td style="color:var(--ink-3)">3.75%</td></tr>
+          <tr><td><strong>Non-Residents</strong></td><td class="v">3.43% <span style="font-size:.75rem;font-weight:400;color:var(--ink-3)">(Eff. July 1, 2025)</span></td><td style="color:var(--ink-3)">3.44%</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-amber">
+        <div class="alert-title">Rates adjust July 1 each year &mdash; always verify before configuring payroll</div>
+        <p>Philadelphia rates are on a planned multi-year reduction schedule through 2030. The rates shown are effective July 1, 2025. Verify current rates at the Philadelphia Department of Revenue before any payroll setup.</p>
+      </div>
+      <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank" class="link-tile mt8"><span><span class="sub">Philadelphia Dept. of Revenue &middot; Official Source</span>Wage Tax &mdash; Employer Information and Current Rates</span><span class="arr">&rarr;</span></a>
+    </div>
+    <div class="card">
+      <div class="card-title">Four Philadelphia Scenarios</div>
+      <table class="tbl">
+        <thead><tr><th>Scenario</th><th>Rate</th><th>Remit To</th></tr></thead>
+        <tbody>
+          <tr><td>Lives and works in Philadelphia</td><td class="v">3.74%*</td><td>Philadelphia</td></tr>
+          <tr><td>Lives in Philly, works outside PA</td><td class="v">3.74%*</td><td>Philadelphia (Act 48)</td></tr>
+          <tr><td>Lives outside Philly, works in Philly</td><td class="v">3.43%*</td><td>Philadelphia</td></tr>
+          <tr><td>Lives in Philly, works in PA (non-Philly)</td><td class="v">3.74%*</td><td>Philadelphia + work-TCD EIT</td></tr>
+        </tbody>
+      </table>
+      <p class="muted mt8" style="font-size:.76rem">* Rates effective July 1, 2025. Verify annually at the Philadelphia Dept. of Revenue.</p>
+      <div class="alert alert-amber mt14">
+        <div class="alert-title">Act 48 &mdash; Philly residents working elsewhere in PA</div>
+        <p>All PA employers &mdash; including those outside Philadelphia &mdash; must withhold the Philadelphia resident Wage Tax (3.74%, Eff. July 1, 2025) for employees who live in Philadelphia, regardless of where the worksite is located within PA.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Remote Work &mdash; Convenience-of-Employer Doctrine</div>
+    <div class="alert alert-red">
+      <div class="alert-title">Philadelphia applies a convenience-of-employer rule</div>
+      <p>For non-residents, Philadelphia Wage Tax applies to work performed in the city and to work performed outside the city at the employee's own convenience. If an employer requires work outside Philadelphia, those wages are not subject to the tax. If the employee chooses to work remotely, Philadelphia still claims those wages. Document whether remote work is employer-directed or employee-elected.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Out-of-State Employees Working in Philadelphia</div>
+    <div class="g2">
+      <div>
+        <p class="fw6" style="font-size:.87rem;color:var(--blue-dark);margin-bottom:9px">NJ Residents Working in Philadelphia</p>
+        <table class="tbl">
+          <tbody>
+            <tr><td class="fw6">PA state tax</td><td>Not withheld &mdash; PA-NJ reciprocity. Collect Form REV-419.</td></tr>
+            <tr><td class="fw6">Philly Wage Tax</td><td>Withheld at 3.43%* non-resident. Reciprocity does not cover local taxes.</td></tr>
+            <tr><td class="fw6">NJ state tax</td><td>Withhold normally</td></tr>
+            <tr><td class="fw6">Employee credit</td><td>Employee may claim Schedule NJ-COJ on their personal NJ return</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p class="fw6" style="font-size:.87rem;color:var(--blue-dark);margin-bottom:9px">MD Residents Working in Philadelphia</p>
+        <table class="tbl">
+          <tbody>
+            <tr><td class="fw6">PA state tax</td><td>Not withheld &mdash; PA-MD reciprocity. Collect Form REV-419.</td></tr>
+            <tr><td class="fw6">Philly Wage Tax</td><td>Withheld at 3.43%* non-resident</td></tr>
+            <tr><td class="fw6">MD state tax</td><td>Not withheld &mdash; reciprocity applies</td></tr>
+            <tr><td class="fw6">Employee credit</td><td>Employee may claim Form 502CR on their personal MD return</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="muted mt8" style="font-size:.76rem">* Rate effective July 1, 2025. Verify annually.</p>
+    <div class="alert alert-slate mt14">
+      <div class="alert-title">Employee advisory &mdash; personal return action</div>
+      <p>The NJ-COJ and MD Form 502CR credits are personal tax return actions taken by the employee at year-end &mdash; not employer withholding adjustments. Inform affected employees to consult their personal tax advisor.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Philadelphia Official Sources</div>
+    <div class="g2">
+      <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank" class="link-tile"><span><span class="sub">Philadelphia Dept. of Revenue</span>Wage Tax &mdash; Employer Registration and Filing</span><span class="arr">&rarr;</span></a>
+      <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/income-taxes/earnings-tax-employees/" target="_blank" class="link-tile"><span><span class="sub">Philadelphia Dept. of Revenue</span>Earnings Tax &mdash; Employee Information</span><span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+  <div class="disclaimer">For informational use only. Verify all rates at official sources before making payroll configuration decisions.</div>
+</div>
+
+
+<!-- ═══ PITTSBURGH ════════════════════════════════════════════ -->
+<div class="page" id="page-pittsburgh">
+  <div class="page-header">
+    <div class="tag">Allegheny County &middot; PSD Codes 02xxxx</div>
+    <h1>Pittsburgh Special Rules</h1>
+    <p>Pittsburgh has its own EIT filing structure, LST split, and an employer-side Payroll Expense Tax with no equivalent elsewhere in PA. EIT is collected by Jordan Tax Service.</p>
+  </div>
+  <div class="alert alert-amber mb14">
+    <div class="alert-title">Pittsburgh has its own filing and collection structure</div>
+    <p>Pittsburgh-area employers file EIT through Allegheny County's four Tax Collection Districts. The City of Pittsburgh has its own LST forms and portal through the Department of Finance.</p>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Pittsburgh Tax Rates</div>
+      <table class="tbl">
+        <thead><tr><th>Tax</th><th>Who Pays</th><th>Rate / Amount</th><th>Collected By</th></tr></thead>
+        <tbody>
+          <tr><td>Resident EIT &mdash; City</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">1.00%</td><td>Jordan Tax Service</td></tr>
+          <tr><td>Resident EIT &mdash; School District</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">2.00%</td><td>Jordan Tax Service</td></tr>
+          <tr class="hl"><td><strong>Resident EIT Total</strong></td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">3.00%</td><td>Jordan Tax Service</td></tr>
+          <tr><td>Non-Resident EIT</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">1.00% (city only)</td><td>Jordan Tax Service</td></tr>
+          <tr><td>LST &mdash; City</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$10.00 / year</td><td>Pittsburgh Finance</td></tr>
+          <tr><td>LST &mdash; School District</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$42.00 / year</td><td>Pittsburgh Finance</td></tr>
+          <tr class="hl"><td><strong>LST Total</strong></td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$52.00 / year</td><td>Pittsburgh Finance</td></tr>
+          <tr class="hl"><td><strong>Payroll Expense Tax</strong></td><td><span class="badge b-amber">Employer &mdash; not withheld</span></td><td class="v">0.55% (5.5 mills)</td><td>Pittsburgh Finance</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">Key Notes</div>
+      <div class="alert alert-slate">
+        <div class="alert-title">Payroll Expense Tax &mdash; employer obligation only</div>
+        <p>The 0.55% Payroll Expense Tax is assessed on the employer. It is not withheld from employee wages and does not appear on employee pay stubs. It applies to total gross taxable compensation for employees performing work within Pittsburgh city limits &mdash; separate from and in addition to employee EIT withholding.</p>
+      </div>
+      <div class="alert alert-slate mt14">
+        <div class="alert-title">Allegheny County &mdash; four TCDs</div>
+        <p>Unlike most PA counties, Allegheny County has four separate Tax Collection Districts. Verify which TCD your Pittsburgh-area worksite falls under via the DCED Address Search.</p>
+      </div>
+      <a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms" target="_blank" class="link-tile mt14"><span><span class="sub">City of Pittsburgh &mdash; Dept. of Finance</span>Pittsburgh Tax Forms &mdash; LST, EIT and Payroll Expense Tax</span><span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+  <div class="disclaimer">For informational use only. Verify all rates at official sources before making payroll configuration decisions.</div>
+</div>
+
+
+<!-- ═══ OUT-OF-STATE ══════════════════════════════════════════ -->
+<div class="page" id="page-outofstate">
+  <div class="page-header">
+    <div class="tag">880000 Code &middot; PA&ndash;MD Reciprocity &middot; Courtesy Withholding</div>
+    <h1>Out-of-State Employees and Cross-Border Rules</h1>
+    <p>State reciprocity agreements apply to state income tax only. They do not automatically exempt employees from PA local EIT or LST. Local rules must be evaluated independently.</p>
+  </div>
+  <div class="alert alert-slate mb14">
+    <div class="alert-title">State reciprocity does not equal local tax exemption</div>
+    <p>PA has state-level reciprocal agreements with <strong>Indiana, Maryland, New Jersey, Ohio, Virginia, and West Virginia</strong> &mdash; for state income tax only. PA local EIT and LST obligations are governed separately.</p>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab('oos1',this)">Out-of-State Resident / PA Worksite</button>
+    <button class="tab-btn" onclick="showTab('oos2',this)">PA Resident / Out-of-State Employer</button>
+    <button class="tab-btn" onclick="showTab('oosmd',this)">PA&ndash;Maryland Deep Dive</button>
+  </div>
+  <div class="tab-wrap">
+    <div class="tab-panel active" id="oos1">
+      <div class="rule-block mb14">
+        <h4>DCED Official Rule &mdash; The 880000 Code</h4>
+        <p>For any employee who lives outside Pennsylvania: set Resident PSD Code = <code>880000</code> and Total Resident EIT Rate = <strong>0%</strong>. The out-of-state resident still owes the Work Location Non-Resident EIT Rate and LST for the PA worksite municipality.</p>
+      </div>
+      <table class="tbl mb14">
+        <thead><tr><th>Home State</th><th>PA State Tax</th><th>PA Local EIT</th><th>PA LST</th><th>Form Required</th></tr></thead>
+        <tbody>
+          <tr><td>New Jersey</td><td class="v">Not withheld</td><td>Work non-res. rate</td><td>Applies</td><td>REV-419</td></tr>
+          <tr><td>Maryland</td><td class="v">Not withheld</td><td>See PA&ndash;MD tab</td><td>Applies</td><td>REV-419</td></tr>
+          <tr><td>IN / OH / VA / WV</td><td class="v">Not withheld</td><td>Work non-res. rate</td><td>Applies</td><td>REV-419</td></tr>
+          <tr><td>Other states (NY, DE, FL...)</td><td class="v">Withheld normally</td><td>Work non-res. rate</td><td>Applies</td><td>None for PA</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-slate">
+        <div class="alert-title">NJ setup note &mdash; PA local EIT may reduce NJ state withholding</div>
+        <p>For NJ residents working in PA, any PA local EIT withheld may reduce the NJ state income tax that should be withheld from the same wages. Confirm how your payroll system handles this offset. The employee may also claim Schedule NJ-COJ on their personal NJ return for PA local taxes paid.</p>
+      </div>
+      <div class="alert alert-slate mt14">
+        <div class="alert-title">Employee advisory &mdash; NJ and MD residents</div>
+        <p>Employees in NJ or MD who have PA local EIT withheld may claim a credit on their home-state personal return. This is a personal return action &mdash; not an employer withholding adjustment.<br>
+        <strong>NJ residents:</strong> Schedule NJ-COJ (filed with NJ-1040)<br>
+        <strong>MD residents:</strong> Form 502CR, Part A (filed with MD-502)</p>
+      </div>
+    </div>
+    <div class="tab-panel" id="oos2">
+      <div class="rule-block mb14">
+        <h4>DCED Official Rule &mdash; Out-of-State Employers</h4>
+        <p>Out-of-state employers are <strong>not required</strong> to withhold PA local EIT for PA resident employees. The PA resident employee remains legally responsible for their home municipality's EIT regardless of where the employer is located.</p>
+      </div>
+      <div class="g2">
+        <div>
+          <p class="fw6" style="font-size:.87rem;color:var(--blue-dark);margin-bottom:9px">If employer chooses courtesy withholding</p>
+          <div class="steps">
+            <div class="step"><div class="step-n">1</div><div><h4>Withhold Total Resident EIT Rate</h4><p>Use the employee's PA home municipality rate from the DCED Address Search.</p></div></div>
+            <div class="step"><div class="step-n">2</div><div><h4>Set work-side PSD to 880000</h4><p>The work location is out-of-state. Use <code>880000</code> on the work side of the Residency Certificate.</p></div></div>
+            <div class="step"><div class="step-n">3</div><div><h4>Remit to employee's home TCD collector</h4><p>Out-of-state employers may remit all PA local EIT to a single PA Tax Officer for distribution to the correct resident collector.</p></div></div>
+          </div>
+        </div>
+        <div>
+          <p class="fw6" style="font-size:.87rem;color:var(--blue-dark);margin-bottom:9px">If employer does not withhold</p>
+          <div class="alert alert-red">
+            <div class="alert-title">Employee must make quarterly estimated payments</div>
+            <p>The PA resident is still legally obligated to pay their home municipality's EIT. Without employer withholding, the employee must:</p>
+            <ul>
+              <li>Calculate their Total Resident EIT Rate via DCED Address Search</li>
+              <li>Make quarterly estimated payments to their home TCD collector</li>
+              <li>File an annual local EIT return by April 15</li>
+              <li>Failure results in interest and a 1% monthly penalty (up to 15%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card mt18" style="background:var(--bg)">
+        <div class="card-title">PA Resident Working in Maryland</div>
+        <div class="g2">
+          <table class="tbl">
+            <tbody>
+              <tr><td class="fw6">MD state tax</td><td>Not withheld &mdash; PA-MD reciprocity. Collect Form MW507.</td></tr>
+              <tr><td class="fw6">PA state tax</td><td>PA employer withholds normally. MD employer: courtesy withholding or quarterly PA estimates.</td></tr>
+              <tr><td class="fw6">MD county local tax</td><td>May apply &mdash; see Form 515 note.</td></tr>
+              <tr><td class="fw6">PA local EIT</td><td>PA employer withholds normally. MD employer: courtesy withholding or quarterly estimates.</td></tr>
+            </tbody>
+          </table>
+          <div class="alert alert-amber">
+            <div class="alert-title">Maryland Form 515 &mdash; county local tax trigger</div>
+            <p>A PA resident working in MD may be subject to MD county local income tax &mdash; but only if their PA home municipality imposes EIT on Maryland residents.<br><br><strong>Exception:</strong> PA residents in York or Adams County are generally not subject to MD county local tax because those TCDs do not levy EIT on Maryland residents.</p>
+          </div>
+        </div>
+        <div class="g2 mt14">
+          <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/MW507.pdf" target="_blank" class="link-tile"><span><span class="sub">Maryland Comptroller</span>Form MW507 &mdash; Withholding Exemption Certificate</span><span class="arr">&rarr;</span></a>
+          <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf" target="_blank" class="link-tile"><span><span class="sub">Maryland Comptroller &mdash; 2025 Instructions</span>Maryland Tax Instructions (includes Form 515 guidance)</span><span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="oosmd">
+      <div class="rule-block mb14">
+        <h4>How the PA&ndash;MD Local Exemption Works</h4>
+        <p>The PA-MD state reciprocity agreement covers state income tax only. However, certain Pennsylvania TCDs have agreed &mdash; through legal settlements or local ordinance &mdash; to exempt Maryland residents from local nonresident EIT withholding. This is determined TCD by TCD, not statewide.</p>
+        <p style="margin-top:8px;color:rgba(255,255,255,.6);font-size:.83rem">LST is never covered by any PA&ndash;MD local exemption. LST applies to all workers at a PA worksite regardless of TCD exemption status.</p>
+      </div>
+      <table class="tbl mb18">
+        <thead><tr><th>Work Location</th><th>PA EIT</th><th>PA LST</th><th>Required Action</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Philadelphia (PSD 51xxxx)</strong></td><td><span class="badge b-red">Philly Wage Tax</span></td><td>Philly LST applies</td><td>Apply 3.43%* non-resident. Collect REV-419. Act 32 does not apply.</td></tr>
+          <tr class="hl"><td><strong>York or Adams County</strong></td><td><span class="badge b-green">Exempt &mdash; 1981 Settlement</span></td><td><span class="badge b-amber">LST Still Applies</span></td><td>Do not withhold EIT. Set Resident PSD = 880000. Withhold LST at work-location rate. Collect REV-419.</td></tr>
+          <tr><td><strong>Other TCD with MD exemption</strong></td><td><span class="badge b-blue">Verify with TCD</span></td><td><span class="badge b-amber">LST Still Applies</span></td><td>Contact the work-location collector to confirm. If exempt: suppress EIT, withhold LST.</td></tr>
+          <tr><td><strong>All other PA locations</strong></td><td><span class="badge b-dark">Withhold Non-Res. Rate</span></td><td><span class="badge b-amber">LST Applies</span></td><td>Withhold Work Non-Resident EIT + LST. Resident PSD = 880000. Employee may claim MD Form 502CR.</td></tr>
+        </tbody>
+      </table>
+      <p class="muted mb18" style="font-size:.76rem">* Philadelphia rate effective July 1, 2025. Verify annually.</p>
+      <div class="g2">
+        <div class="alert alert-green">
+          <div class="alert-title">York and Adams County &mdash; confirmed exemption</div>
+          <p>In 1981, a legal settlement was reached between York Adams Tax Bureau member authorities and the State of Maryland. Maryland residents employed in York or Adams County file and pay local tax only to Maryland.</p>
+          <ul>
+            <li>EIT only &mdash; LST still applies at the work location rate</li>
+            <li>Maryland residents only &mdash; does not apply to other states</li>
+            <li>If EIT was withheld in error, the employee is entitled to a full refund from the TCD</li>
+          </ul>
+        </div>
+        <div class="alert alert-amber">
+          <div class="alert-title">Other TCD exemptions &mdash; must verify</div>
+          <p>Beyond York and Adams, other PA TCDs may also exempt Maryland residents from nonresident EIT. This is maintained at the TCD level and may be reflected in your payroll system's configuration.</p>
+          <p style="margin-top:6px"><strong>How to verify:</strong> Contact the work-location TCD collector directly and ask whether they honor the Maryland resident EIT exemption. If your payroll system suppresses PA EIT for a Maryland employee, that may be correct configuration &mdash; not an error.</p>
+        </div>
+      </div>
+      <div class="card mt18" style="background:var(--bg)">
+        <div class="card-title">The Reciprocal Mechanism</div>
+        <table class="tbl">
+          <thead><tr><th>Scenario</th><th>PA Local EIT?</th><th>Maryland Response</th></tr></thead>
+          <tbody>
+            <tr><td>MD resident works in PA TCD that exempts MD residents</td><td><span class="badge b-green">None</span></td><td>MD does not impose county local tax on PA residents in those areas</td></tr>
+            <tr><td>MD resident works in PA TCD that taxes MD residents</td><td><span class="badge b-dark">Withheld</span></td><td>MD may impose county local tax on PA residents working in MD (Form 515 trigger)</td></tr>
+            <tr><td>PA resident works in MD; home PA municipality taxes MD residents</td><td>PA EIT owed by PA resident</td><td>MD withholds county local tax; employee files Form 515</td></tr>
+            <tr><td>PA resident works in MD; home is York or Adams County</td><td>PA EIT owed by PA resident</td><td>No MD county local tax; Form 515 not required</td></tr>
+          </tbody>
+        </table>
+        <div class="alert alert-slate mt14">
+          <div class="alert-title">MD Form 502CR &mdash; employee credit</div>
+          <p>When PA local EIT is withheld from a Maryland resident's wages, the employee may claim a credit on their Maryland resident return using <strong>Form 502CR, Part A</strong>. This is a personal return action &mdash; not an employer withholding adjustment. Some payroll systems apply this offset at the calculation level; if yours does, verify the configuration is correct for each affected TCD.</p>
+        </div>
+        <div class="g2 mt14">
+          <a href="https://yatb.com/non-residents" target="_blank" class="link-tile"><span><span class="sub">York Adams Tax Bureau &mdash; Official Source</span>Maryland Resident Exemption Documentation</span><span class="arr">&rarr;</span></a>
+          <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502cr.pdf" target="_blank" class="link-tile"><span><span class="sub">Maryland Comptroller</span>Form 502CR &mdash; Income Tax Credits for Individuals</span><span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mt18">
+    <div class="card-title">State Reciprocity Forms &mdash; Quick Reference</div>
+    <table class="tbl">
+      <thead><tr><th>State</th><th>Reciprocal?</th><th>Form</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>New Jersey</td><td><span class="badge b-green">Yes</span></td><td>REV-419 (working in PA) / NJ-165 (working in NJ)</td><td>Stops non-resident state tax withholding</td></tr>
+        <tr><td>Maryland</td><td><span class="badge b-green">Yes</span></td><td>REV-419 (working in PA) / MW507 (working in MD)</td><td>Stops non-resident state tax withholding</td></tr>
+        <tr><td>Ohio</td><td><span class="badge b-green">Yes</span></td><td>REV-419 (working in PA) / IT-4NR (working in OH)</td><td>Stops non-resident state tax withholding</td></tr>
+        <tr><td>Virginia</td><td><span class="badge b-green">Yes</span></td><td>REV-419 (working in PA) / VA-4 (working in VA)</td><td>Stops non-resident state tax withholding</td></tr>
+        <tr><td>West Virginia</td><td><span class="badge b-green">Yes</span></td><td>REV-419 (working in PA) / WV/IT-104R (working in WV)</td><td>Stops non-resident state tax withholding</td></tr>
+        <tr><td>Indiana</td><td><span class="badge b-green">Yes</span></td><td>REV-419 (working in PA) / WH-47 (working in IN)</td><td>Stops non-resident state tax withholding</td></tr>
+        <tr><td>All other states</td><td><span class="badge b-red">No</span></td><td>N/A</td><td>Standard withholding; employee may claim credit on resident return</td></tr>
+      </tbody>
+    </table>
+    <a href="https://www.revenue.pa.gov/FormsandPublications/FormsforIndividuals/PIT/Documents/rev-419.pdf" target="_blank" class="link-tile mt14" style="max-width:420px"><span><span class="sub">PA Department of Revenue &middot; Form REV-419</span>Employee's Nonwithholding Application Certificate</span><span class="arr">&rarr;</span></a>
+  </div>
+  <div class="disclaimer">For informational use only. Verify all rates at official sources before making payroll configuration decisions.</div>
+</div>
+
+
+<!-- ═══ COLLECTORS ════════════════════════════════════════════ -->
+<div class="page" id="page-collectors">
+  <div class="page-header">
+    <div class="tag">Remittance Destinations &middot; 69 TCDs</div>
+    <h1>Tax Collectors and Registration</h1>
+    <p>Pennsylvania's 69 Tax Collection Districts contract with a small number of professional collectors. Use the DCED Address Search to identify the assigned collector for any specific worksite address.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Major PA Local Tax Collectors</div>
+    <div class="collector-grid">
+      <div class="coll-tile"><h4>Berkheimer Tax Innovations</h4><p>Multiple PA counties &mdash; one of the largest EIT/LST collectors</p><a href="https://www.hab-inc.com/employer-services/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Keystone Collections Group</h4><p>Statewide coverage; significant presence in central and western PA</p><a href="https://keystonecollects.com/business/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Jordan Tax Service</h4><p>Southwest Allegheny County &mdash; Pittsburgh area EIT collector</p><a href="https://www.jordantax.com/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Tri-State Financial Group</h4><p>Selected southeastern PA jurisdictions</p><a href="http://www.tfgtax.com/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Capital Tax Collection Bureau</h4><p>Dauphin County and Capital Region</p><a href="https://captax.com/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>York Adams Tax Bureau</h4><p>York and Adams Counties &mdash; MD resident EIT exemption applies</p><a href="https://yatb.com/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Philadelphia Dept. of Revenue</h4><p>Philadelphia only &mdash; not part of Act 32 TCD structure</p><a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Pittsburgh Dept. of Finance</h4><p>City of Pittsburgh LST, EIT, and Payroll Expense Tax</p><a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms" target="_blank">Employer Portal &rarr;</a></div>
+    </div>
+    <div class="alert alert-slate mt14">
+      <div class="alert-title">Always verify your assigned collector</div>
+      <p>This list covers the major collectors but is not exhaustive. Some TCDs use county-operated bureaus or other firms. Use the DCED Address Search to confirm the assigned collector for any specific worksite.</p>
+    </div>
+  </div>
+  <div class="disclaimer">For informational use only. Verify all rates at official sources before making payroll configuration decisions.</div>
+</div>
+
+
+<!-- ═══ ABOUT ══════════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-header">
+    <div class="tag">About</div>
+    <h1>PA Local Tax Navigator</h1>
+  </div>
+  <div class="about-hero">
+    <h1>Dorothy Chaloult, CPP</h1>
+    <p class="ah-title">Payroll Tax Compliance &amp; Tax Technology</p>
+    <p>With more than 23 years in payroll tax compliance and 20 years working within payroll tax calculation engine software, I built this tool to address a real gap: Pennsylvania's local tax system is one of the most complex in the country, and the reference material available to payroll professionals rarely reflects that complexity accurately.</p>
+    <p>This navigator covers Act 32 EIT, LST, Philadelphia and Pittsburgh special rules, and the cross-border PA&ndash;Maryland mechanics &mdash; including the TCD-level exemption framework that most reference tools miss entirely.</p>
+    <ul class="about-cred">
+      <li>Certified Payroll Professional (CPP)</li>
+      <li>23+ years in payroll tax compliance</li>
+      <li>20+ years working within payroll tax calculation engine software</li>
+      <li>Multi-state and multi-jurisdiction payroll specialization</li>
+      <li>Pennsylvania local tax &mdash; Act 32, LST, Philadelphia, multi-state</li>
+      <li>Bridging payroll tax law and system implementation</li>
+    </ul>
+    <a href="https://www.linkedin.com/in/dorothy-chaloult-cpp/" target="_blank" class="about-linkedin">Connect on LinkedIn &rarr;</a>
+  </div>
+  <div class="disclaimer">&copy; 2026 Dorothy Chaloult, CPP &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a> &middot; Independent practitioner tool &middot; Not affiliated with any government agency or tax collector &middot; All content verified against official statutes, DCED administrative guidance, and municipal agency publications &middot; For informational use only. This tool does not constitute legal, tax, or accounting advice.</div>
+</div>
 
 </main>
+</div>
 
-<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
-<footer class="site-footer">
-  <div class="footer-byline">PA Local Tax Navigator</div>
-  <div>Designed &amp; built by <strong>Dorothy Chaloult, CPP</strong> · Payroll Tax Compliance &amp; Technology Specialist</div>
-  <div style="margin-top:4px;">© 2026 Dorothy Chaloult · <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a> · Independent practitioner tool · Not affiliated with any government agency, software company, or tax collector</div>
-  <div style="margin-top:6px;font-size:.72rem;opacity:.6;">Pennsylvania local tax reference · Act 32 EIT · Local Services Tax · Philadelphia Wage Tax · PA–Maryland reciprocity</div>
+<footer class="footer">
+  <div><strong>PA Local Tax Navigator</strong></div>
+  <div>Built by <strong>Dorothy Chaloult, CPP</strong> &middot; Payroll Tax Compliance &amp; Tax Technology</div>
+  <div style="margin-top:3px">&copy; 2026 Dorothy Chaloult &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a> &middot; Not affiliated with any government agency, software company, or tax collector</div>
 </footer>
 
 <script>
-  // Tab switcher
-  function showTab(id, btn) {
-    const panel = document.getElementById(id);
-    if (!panel) return;
-    const wrap = panel.closest('.card');
-    wrap.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    wrap.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    panel.classList.add('active');
-    btn.classList.add('active');
+/* ── Navigation ─────────────────────────────────────────── */
+function go(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const p = document.getElementById('page-' + id);
+  if (p) p.classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (window.innerWidth <= 840) document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo(0, 0);
+}
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
+document.addEventListener('click', e => {
+  const sb = document.getElementById('sidebar');
+  const hb = document.querySelector('.hamburger');
+  if (window.innerWidth <= 840 && sb.classList.contains('open') && !sb.contains(e.target) && !hb.contains(e.target))
+    sb.classList.remove('open');
+});
+
+/* ── Internal tabs ──────────────────────────────────────── */
+function showTab(id, btn) {
+  const panel = document.getElementById(id);
+  if (!panel) return;
+  const wrap = panel.closest('.tab-wrap');
+  const bar = wrap.previousElementSibling;
+  wrap.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  bar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── Formatters ─────────────────────────────────────────── */
+function getFreq() { return parseInt(document.querySelector('input[name=freq]:checked').value) || 26; }
+function freqLabel(n) { return {52:'Weekly',26:'Bi-Weekly',24:'Semi-Monthly',12:'Monthly'}[n] || (n + ' periods/year'); }
+
+function dollar(v) {
+  return '$' + parseFloat(v || 0).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+function pct(v) {
+  return parseFloat(v || 0).toFixed(3) + '%';
+}
+function floorCent(v) { return Math.floor(v * 100) / 100; }
+
+/* ── Clear ──────────────────────────────────────────────── */
+function clearAll() {
+  document.getElementById('raw_paste').value = '';
+  document.getElementById('parse-err').classList.remove('show');
+  document.getElementById('results').classList.remove('show');
+}
+
+/* ── Parser ─────────────────────────────────────────────── */
+function parseDCED(text) {
+  const d = {};
+  // Trim at disclaimer
+  const discIdx = text.search(/Disclaimer:/i);
+  const clean = discIdx > -1 ? text.slice(0, discIdx) : text;
+  const lines = clean.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+
+  const homeIdx = lines.findIndex(l => /HOME:/i.test(l));
+  const workIdx = lines.findIndex(l => /WORK:/i.test(l));
+  if (homeIdx === -1 || workIdx === -1) return null;
+
+  // Home rows
+  const homeLines = lines.slice(homeIdx, workIdx).filter(l => /\(Home\)/i.test(l));
+  if (homeLines[0]) {
+    const p = homeLines[0].split(/\t+/);
+    d.hMuni    = p[0].replace(/\(Home\)/i,'').trim();
+    d.hPSD     = (p[1]||'').trim();
+    d.hMuniEIT = parseFloat((p[2]||'0').replace('%','')) || 0;
+  }
+  if (homeLines[1]) {
+    const p = homeLines[1].split(/\t+/);
+    d.hSd    = p[0].replace(/\(Home\)/i,'').trim();
+    d.hSdEIT = parseFloat((p[2]||'0').replace('%','')) || 0;
   }
 
-  // Smooth scroll offset for sticky header
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+  // Work rows
+  const workLines = lines.slice(workIdx).filter(l => /\(Work\)/i.test(l));
+  if (workLines[0]) {
+    const p = workLines[0].split(/\t+/);
+    d.wMuni   = p[0].replace(/\(Work\)/i,'').trim();
+    d.wPSD    = (p[1]||'').trim();
+    const nr  = workLines[0].match(/([\d.]+)\s*%/);
+    d.wNonres = nr ? parseFloat(nr[1]) : 0;
+    const ds  = [...workLines[0].matchAll(/\$([\d,.]+)/g)].map(m => parseFloat(m[1].replace(',','')));
+    d.wMuniLST = ds[0] || 0;
+    d.wMuniEx  = ds[1] || 0;
+  }
+  if (workLines[1]) {
+    d.wSd = workLines[1].split(/\t+/)[0].replace(/\(Work\)/i,'').trim();
+    const ds = [...workLines[1].matchAll(/\$([\d,.]+)/g)].map(m => parseFloat(m[1].replace(',','')));
+    d.wSdLST = ds[0] || 0;
+    d.wSdEx  = ds[1] || 0;
+  }
+
+  // ── Collectors: parse ALL blocks until disclaimer ────────
+  // Find the collector header line
+  const collIdx = lines.findIndex(l => /Tax Collectors/i.test(l));
+  d.collectors = [];
+  if (collIdx > -1) {
+    const collLines = lines.slice(collIdx + 1);
+    // Role headers appear on one tab-separated line: "EIT\tMunicipal LST\tSchool District LST"
+    const roleHeaderIdx = collLines.findIndex(l => /EIT.*LST|Municipal LST/i.test(l));
+    const roles = roleHeaderIdx > -1
+      ? collLines[roleHeaderIdx].split(/\t+/).map(r => r.trim()).filter(Boolean)
+      : ['EIT','Municipal LST','School District LST'];
+
+    // Everything after the role header is collector data
+    const dataLines = roleHeaderIdx > -1 ? collLines.slice(roleHeaderIdx + 1) : collLines;
+
+    // Split into collector blocks by detecting URL lines as block terminators
+    // Strategy: accumulate lines into the current block; when we hit a URL, seal it
+    // Then continue for next block. Stop when we run out of lines.
+    let blocks = [];
+    let currentBlock = [];
+    for (const line of dataLines) {
+      if (/^https?:\/\//i.test(line)) {
+        currentBlock.push({ type: 'url', val: line.trim() });
+        blocks.push([...currentBlock]);
+        currentBlock = [];
+      } else {
+        currentBlock.push({ type: 'text', val: line.trim() });
+      }
+    }
+    // Seal any remaining block (collector with no URL)
+    if (currentBlock.length > 0 && currentBlock.some(l => l.val.length > 2)) {
+      blocks.push([...currentBlock]);
+    }
+
+    // Parse each block into a collector object
+    blocks.forEach((block, i) => {
+      const role = roles[i] || ('Collector ' + (i + 1));
+      const urlLine = block.find(l => l.type === 'url');
+      const textLines = block.filter(l => l.type === 'text' && l.val.length > 1);
+      // Name: first text line that isn't a phone/email
+      const nameLine = textLines.find(l => !/^[\d(]|\@|http/i.test(l.val));
+      // Address lines: everything between name and phone/email/url
+      const nameIdx = textLines.indexOf(nameLine);
+      const addrLines = nameIdx > -1 ? textLines.slice(nameIdx + 1).filter(l => !l.val.match(/^[\d(].*\d{4}$/) && !l.val.includes('@') && !l.val.includes('http')) : [];
+      // Phone: line matching phone pattern
+      const phoneLine = textLines.find(l => /\([\d]{3}\)\s*[\d]{3}[-.\s][\d]{4}/.test(l.val));
+      // Email
+      const emailLine = textLines.find(l => l.val.includes('@'));
+
+      if (nameLine) {
+        d.collectors.push({
+          role,
+          name: nameLine.val,
+          address: addrLines.map(l => l.val).join(', '),
+          phone: phoneLine ? phoneLine.val : '',
+          email: emailLine ? emailLine.val : '',
+          url: urlLine ? urlLine.val : ''
+        });
       }
     });
-  });
+  }
 
-  // Active nav highlight on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navBtns = document.querySelectorAll('.nav-btn[href^="#"]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
-    });
-    navBtns.forEach(b => {
-      b.classList.toggle('active', b.getAttribute('href') === '#' + current);
-    });
-  });
+  return d;
+}
+
+/* ── Collector dedup ────────────────────────────────────── */
+function dedupeCollectors(collectors) {
+  if (!collectors || collectors.length === 0) return [];
+  const result = [];
+  const seen = new Map(); // name.toLowerCase() -> result index
+
+  for (const c of collectors) {
+    const key = c.name.toLowerCase();
+    if (seen.has(key)) {
+      // Merge role into existing entry
+      const existing = result[seen.get(key)];
+      existing.roles.push(c.role);
+    } else {
+      seen.set(key, result.length);
+      result.push({ ...c, roles: [c.role] });
+    }
+  }
+  return result;
+}
+
+/* ── Build results ──────────────────────────────────────── */
+function buildResults(d) {
+  const freq = getFreq();
+  const fl   = freqLabel(freq);
+  const resEIT   = (parseFloat(d.hMuniEIT)||0) + (parseFloat(d.hSdEIT)||0);
+  const nrEIT    = parseFloat(d.wNonres) || 0;
+  const withhold = Math.max(resEIT, nrEIT);
+  const eitDriver = withhold === resEIT ? 'Resident rate' : 'Non-Resident rate';
+  const muniLST  = parseFloat(d.wMuniLST) || 0;
+  const sdLST    = parseFloat(d.wSdLST)   || 0;
+  const totalLST = muniLST + sdLST;
+  const lstPer   = totalLST > 10 ? floorCent(totalLST / freq) : totalLST;
+  const lstMethod = totalLST > 10 ? 'Pro-rated per pay period' : totalLST > 0 ? 'Lump sum &mdash; first paycheck' : 'No LST';
+  const muniEx   = parseFloat(d.wMuniEx) || 0;
+
+  const wPSD = (d.wPSD || '').trim();
+  const isPhilly = wPSD.startsWith('51');
+  const isPitt   = wPSD.startsWith('02');
+
+  // Alerts
+  let alerts = '';
+  if (isPhilly) alerts += `<div class="alert alert-red mb14"><div class="alert-title">Philadelphia &mdash; special rules apply</div><p>This work location is in Philadelphia. Act 32 EIT does not apply. Apply Philadelphia Wage Tax: <strong>Resident 3.74%</strong> / <strong>Non-Resident 3.43%</strong> (Eff. July 1, 2025 &mdash; verify annually). Remit to the Philadelphia Department of Revenue. See the <button onclick="go('philadelphia',document.querySelector('[onclick*=philadelphia]'))" style="background:none;border:none;color:var(--c-red);cursor:pointer;font-weight:600;padding:0;font-size:.84rem;text-decoration:underline">Philadelphia page</button> for full details.</p></div>`;
+  if (isPitt)   alerts += `<div class="alert alert-amber mb14"><div class="alert-title">Pittsburgh &mdash; special rules apply</div><p>This work location is in Pittsburgh. Pittsburgh has its own EIT/LST filing structure. Employers also owe a Payroll Expense Tax of 0.55% on gross payroll &mdash; employer-side only, not withheld from employees. See the <button onclick="go('pittsburgh',document.querySelector('[onclick*=pittsburgh]'))" style="background:none;border:none;color:var(--c-amber);cursor:pointer;font-weight:600;padding:0;font-size:.84rem;text-decoration:underline">Pittsburgh page</button> for full details.</p></div>`;
+  if (totalLST > 10 && muniEx > 0) alerts += `<div class="alert alert-amber mb14"><div class="alert-title">LST low-income exemption may apply</div><p>Combined LST of ${dollar(totalLST)}/year exceeds $10. Employees earning below <strong>${dollar(muniEx)}</strong> in this jurisdiction may be exempt. Make Form LST-E available to qualifying employees before withholding begins. <a href="https://dced.pa.gov/download/taxpayer-application-for-exemption-from-local-services-tax-lst/?wpdmdl=56757" target="_blank">Download Form LST-E &rarr;</a></p></div>`;
+
+  // Rate boxes
+  const rateRow = `<div class="rate-row">
+    <div class="rate-box primary"><div class="rb-lbl">EIT &mdash; Withhold</div><div class="rb-val">${pct(withhold)}</div><div class="rb-sub">${eitDriver} &middot; Work PSD ${wPSD||'&mdash;'}</div></div>
+    <div class="rate-box"><div class="rb-lbl">LST &mdash; Annual</div><div class="rb-val">${totalLST > 0 ? dollar(totalLST) : '$0.00'}</div><div class="rb-sub">${lstMethod}</div></div>
+  </div>`;
+
+  // Directive
+  const directive = `<div class="directive mb18">
+    <h4>Setup Values</h4>
+    <div class="d-row"><span class="d-lbl">Home PSD</span><span class="d-val"><code>${d.hPSD||'&mdash;'}</code> &mdash; ${d.hMuni||''} / ${d.hSd||''}</span></div>
+    <div class="d-row"><span class="d-lbl">Work PSD</span><span class="d-val"><code>${d.wPSD||'&mdash;'}</code> &mdash; ${d.wMuni||''} / ${d.wSd||''}</span></div>
+    <div class="d-row"><span class="d-lbl">Resident EIT</span><span class="d-val">${pct(resEIT)} (${pct(d.hMuniEIT||0)} municipal + ${pct(d.hSdEIT||0)} school district)</span></div>
+    <div class="d-row"><span class="d-lbl">Non-Resident EIT</span><span class="d-val">${pct(nrEIT)}</span></div>
+    <div class="d-row"><span class="d-lbl">Withhold EIT</span><span class="d-val" style="font-weight:700;color:#B8CAE8">${pct(withhold)} &mdash; ${eitDriver}</span></div>
+    <div class="d-row"><span class="d-lbl">LST</span><span class="d-val">${totalLST > 0 ? dollar(totalLST)+'/year' : 'None &mdash; $0.00'}</span></div>
+  </div>`;
+
+  // LST breakdown
+  let lstHtml = '';
+  if (totalLST > 0) {
+    if (totalLST > 10) {
+      lstHtml = `<div class="lst-box mb18"><h5>LST Per-Period Withholding &mdash; ${fl}</h5>
+        <div class="lst-row"><span>Annual LST</span><span class="lv">${dollar(totalLST)}</span></div>
+        <div class="lst-row"><span>Pay periods per year</span><span class="lv">${freq}</span></div>
+        <div class="lst-row" style="border-top:1px solid var(--border);margin-top:5px;padding-top:7px"><span style="font-weight:600">Per-period amount (rounded down)</span><span class="lv" style="font-size:1.1rem">${dollar(lstPer)}</span></div>
+        <div class="lst-row"><span style="color:var(--ink-3)">Collection method</span><span style="font-size:.83rem;color:var(--ink-3)">Pro-rated (LST exceeds $10)</span></div>
+      </div>`;
+    } else {
+      lstHtml = `<div class="alert alert-slate mb18"><div class="alert-title">LST &le; $10 &mdash; lump sum collection</div><p>Combined LST of ${dollar(totalLST)} may be collected as a lump sum in the first paycheck of the year.</p></div>`;
+    }
+  }
+
+  // Collectors with dedup
+  const deduped = dedupeCollectors(d.collectors || []);
+  let collHtml = '';
+  if (deduped.length > 0) {
+    const tiles = deduped.map(c => {
+      const roleLabel = c.roles.join(' + ');
+      const noteHtml = c.roles.length > 1
+        ? `<div class="co-note">Handles ${c.roles.join(', ')}</div>` : '';
+      const addrHtml = c.address ? `<div class="co-detail">${c.address}</div>` : '';
+      const phoneHtml = c.phone ? `<div class="co-detail">${c.phone}</div>` : '';
+      const emailHtml = c.email ? `<div class="co-detail"><a href="mailto:${c.email}">${c.email}</a></div>` : '';
+      const urlHtml = c.url
+        ? `<div class="co-detail"><a href="${c.url}" target="_blank">${c.url}</a></div>`
+        : `<div class="co-detail" style="color:var(--ink-3);font-style:italic">No website &mdash; contact by phone or mail</div>`;
+      return `<div class="co"><div class="co-role">${roleLabel}</div><div class="co-name">${c.name}</div>${noteHtml}${addrHtml}${phoneHtml}${emailHtml}${urlHtml}</div>`;
+    }).join('');
+    collHtml = `<p class="fw6 mb8" style="font-size:.87rem;color:var(--blue-dark)">Tax Collectors from DCED Results</p>
+      <div class="coll-out">${tiles}</div>
+      <p class="muted mt8" style="font-size:.79rem">For registration portals and additional contact information, see the <button onclick="go('collectors',document.querySelector('[onclick*=collectors]'))" style="background:none;border:none;color:var(--blue);cursor:pointer;font-weight:600;padding:0;font-size:.79rem;text-decoration:underline">Tax Collectors</button> section of this tool.</p>`;
+  }
+
+  // Action steps
+  const steps = `<div class="action-steps">
+    <p class="fw6 mb8" style="font-size:.87rem;color:var(--blue-dark)">Employer Action Steps</p>
+    <div class="a-step"><div class="a-num">1</div><div class="a-body"><h4>Collect Residency Certification Form from the employee</h4><p>Form DCED-CLGS-32-6 &mdash; required at hire and on any address change. Enter Home PSD <code>${d.hPSD||'&mdash;'}</code> and Work PSD <code>${d.wPSD||'&mdash;'}</code>. <a href="https://dced.pa.gov/download/residency-certification-form-local-earned-income-tax-withholding-pdf/?wpdmdl=57773" target="_blank">Download form &rarr;</a></p></div></div>
+    <div class="a-step"><div class="a-num">2</div><div class="a-body"><h4>Configure payroll system with both PSD codes</h4><p>Home PSD: <code>${d.hPSD||'&mdash;'}</code> &nbsp;&middot;&nbsp; Work PSD: <code>${d.wPSD||'&mdash;'}</code></p></div></div>
+    <div class="a-step"><div class="a-num">3</div><div class="a-body"><h4>Set EIT withholding rate to <strong>${pct(withhold)}</strong></h4><p>The DCED results show "Total Taxes to be Withheld" &mdash; this is the Higher-Of result already calculated. ${eitDriver} (${pct(resEIT)} resident vs. ${pct(nrEIT)} non-resident). Remit to the EIT collector for the work-location TCD.</p></div></div>
+    <div class="a-step"><div class="a-num">4</div><div class="a-body"><h4>Register with the tax collector(s) for your PA worksite</h4><p>${deduped.length > 0 ? 'Collector information from your DCED results is shown above.' : 'See your DCED results for collector names and contact information.'} For registration portals, see the <button onclick="go('collectors',document.querySelector('[onclick*=collectors]'))" style="background:none;border:none;color:var(--blue);cursor:pointer;font-weight:600;padding:0;font-size:.84rem;text-decoration:underline">Tax Collectors</button> section.</p></div></div>
+    ${totalLST > 0 ? `<div class="a-step"><div class="a-num">5</div><div class="a-body"><h4>Set up LST withholding &mdash; ${dollar(totalLST)}/year${totalLST > 10 ? ' ('+dollar(lstPer)+' per '+fl.toLowerCase()+' pay period)' : ' (lump sum, first paycheck)'}</h4><p>${totalLST > 10 ? 'LST exceeds $10 &mdash; must prorate across all pay periods. Round down to the nearest cent.' : 'LST is $10 or less &mdash; may collect as a lump sum in the first paycheck of the year.'}${muniEx > 0 ? ' Make Form LST-E available to employees earning under '+dollar(muniEx)+' in this jurisdiction. <a href="https://dced.pa.gov/download/taxpayer-application-for-exemption-from-local-services-tax-lst/?wpdmdl=56757" target="_blank">Download LST-E &rarr;</a>' : ''}</p></div></div>` : ''}
+  </div>`;
+
+  document.getElementById('res-meta').textContent = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) + ' \u00b7 ' + fl;
+  document.getElementById('res-body').innerHTML = alerts + rateRow + directive + lstHtml + collHtml + steps;
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ── Run paste ──────────────────────────────────────────── */
+function runPaste() {
+  document.getElementById('parse-err').classList.remove('show');
+  const raw = document.getElementById('raw_paste').value;
+  if (!raw.trim()) { showErr('No text detected. Please paste your DCED results.'); return; }
+  try {
+    const d = parseDCED(raw);
+    if (!d || (!d.hPSD && !d.wPSD)) { showErr('Could not identify the expected DCED format. Check that you selected all text on the results page and try again.'); return; }
+    buildResults(d);
+  } catch(e) { showErr('Parse error. Check that you selected all text on the results page and try again.'); }
+}
+function showErr(msg) {
+  document.getElementById('parse-err-msg').textContent = msg;
+  document.getElementById('parse-err').classList.add('show');
+}
 </script>
-
 </body>
 </html>
