@@ -22,7 +22,7 @@ Pennsylvania has one of the most complex local tax systems in the United States 
 |---|---|
 | **DCED Setup Lookup** | Paste DCED address search results to generate a complete payroll setup directive: EIT rate, LST per-period withholding, collector information, and employer action steps |
 | **Act 32 / EIT** | Higher-Of rule, PSD codes, Residency Certification Form, employer setup checklist |
-| **Local Services Tax** | Rates, proration by pay frequency, low-income exemption ($12,000 / $15,600 thresholds), concurrent employment rules |
+| **Local Services Tax** | Rates, proration by pay frequency, low-income exemption, concurrent employment rules |
 | **Philadelphia Wage Tax** | Current rates with effective dates, four residency scenarios, Act 48, convenience-of-employer doctrine, out-of-state employees |
 | **Pittsburgh Special Rules** | EIT rates, LST structure, Payroll Expense Tax (employer-side), Allegheny County TCD structure |
 | **Out-of-State Employees** | 880000 PSD code, out-of-state resident / PA worksite, PA resident / out-of-state employer, courtesy withholding |
