@@ -247,9 +247,13 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
 @media(max-width:840px){
   :root{--sidebar-w:0px}
   .top-logo{min-width:auto;width:auto;border-right:none;padding-left:14px}
-  .hamburger{display:flex}
-  .sidebar{width:236px;left:-236px;transition:left .22s ease}
-  .sidebar.open{left:0;box-shadow:var(--sh)}
+  .top-tagline{display:none}
+  .hamburger{display:flex;align-items:center;gap:7px;flex-shrink:0}
+  .hamburger-label{font-size:.78rem;font-weight:500;letter-spacing:.03em;color:#fff}
+  .sidebar{width:236px;left:-236px;transition:left .22s ease;z-index:160}
+  .sidebar.open{left:0;box-shadow:4px 0 18px rgba(0,0,0,.22)}
+  .sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:155;transition:opacity .22s ease}
+  .sb-overlay.open{display:block}
   .content{margin-left:0}
   .footer{margin-left:0}
   .page{padding:20px 16px 48px}
@@ -270,6 +274,7 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
   </div>
   <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="3" width="20" height="2" rx="1" fill="white"/><rect y="9" width="20" height="2" rx="1" fill="white"/><rect y="15" width="20" height="2" rx="1" fill="white"/></svg>
+    <span class="hamburger-label">Menu</span>
   </button>
 </header>
 
@@ -883,6 +888,9 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
   <div style="margin-top:3px">&copy; 2026 Dorothy Chaloult &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a> &middot; Not affiliated with any government agency, software company, or tax collector</div>
 </footer>
 
+<!-- Mobile sidebar overlay -->
+<div class="sb-overlay" id="sb-overlay" onclick="toggleSidebar()"></div>
+
 <script>
 /* ── Navigation ─────────────────────────────────────────── */
 function go(id, btn) {
@@ -890,11 +898,21 @@ function go(id, btn) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   const p = document.getElementById('page-' + id);
   if (p) p.classList.add('active');
-  if (btn) btn.classList.add('active');
-  if (window.innerWidth <= 840) document.getElementById('sidebar').classList.remove('open');
+  // Only highlight nav button if it is actually a nav-btn element
+  if (btn && btn.classList && btn.classList.contains('nav-btn')) btn.classList.add('active');
+  // On mobile, close the sidebar and overlay on navigation
+  if (window.innerWidth <= 840) {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sb-overlay').classList.remove('open');
+  }
   window.scrollTo(0, 0);
 }
-function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sb-overlay');
+  const isOpen = sidebar.classList.toggle('open');
+  overlay.classList.toggle('open', isOpen);
+}
 document.addEventListener('click', e => {
   const sb = document.getElementById('sidebar');
   const hb = document.querySelector('.hamburger');
