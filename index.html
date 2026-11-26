@@ -270,7 +270,7 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
   </div>
   <div class="top-right">
     <span class="top-tagline">Pennsylvania Local Payroll Tax Reference</span>
-    <span class="top-year">2025&ndash;2026</span>
+    <span class="top-year">2026&ndash;2027</span>
   </div>
   <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect y="3" width="20" height="2" rx="1" fill="white"/><rect y="9" width="20" height="2" rx="1" fill="white"/><rect y="15" width="20" height="2" rx="1" fill="white"/></svg>
@@ -371,7 +371,7 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
   <div class="page-header">
     <div class="tag">Core Framework</div>
     <h1>Act 32 &amp; Local Earned Income Tax (EIT)</h1>
-    <p>Act 32 of 2008 consolidated Pennsylvania's local EIT collection into 69 Tax Collection Districts, effective January 1, 2012. Philadelphia and Pittsburgh operate under separate frameworks.</p>
+    <p>Act 32 of 2008 consolidated Pennsylvania's local EIT collection into 69 Tax Collection Districts, effective January 1, 2012. Philadelphia is outside Act 32 entirely. Pittsburgh's EIT runs through Act 32 (Allegheny Central and Southwest TCDs); only its LST and Payroll Expense Tax are handled separately by the city.</p>
   </div>
   <div class="rule-block">
     <h4>The "Higher-Of" Withholding Rule</h4>
@@ -395,7 +395,7 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
       <table class="tbl mb14">
         <thead><tr><th>Item</th><th>Detail</th></tr></thead>
         <tbody>
-          <tr><td>Rate range</td><td class="v">0% &ndash; ~3.924%</td></tr>
+          <tr><td>Rate range</td><td class="v">0% &ndash; 3.75% <span style="font-size:.75rem;font-weight:400;color:var(--ink-3)">(highest: Chester City, 2026 DCED register; Philadelphia is separate)</span></td></tr>
           <tr><td>PA state rate (separate)</td><td class="v">3.07% flat</td></tr>
           <tr><td>Number of TCDs</td><td class="v">69</td></tr>
           <tr><td>Out-of-state resident PSD</td><td><code>880000</code> / 0%</td></tr>
@@ -456,8 +456,8 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
         </tbody>
       </table>
       <div class="alert alert-amber">
-        <div class="alert-title">Some jurisdictions exceed $52/year</div>
-        <p>Financially distressed municipalities authorized under special legislation may assess more than the standard cap. Always verify via the DCED Address Search for the specific work location.</p>
+        <div class="alert-title">Two jurisdictions exceed $52/year</div>
+        <p>Financially distressed municipalities authorized under special legislation may assess more than the standard cap. In the 2026 DCED register, only <strong>Harrisburg City</strong> and <strong>Scranton City</strong> do &mdash; each at $156/year ($151 municipal + $5 school district), with higher low-income exemption thresholds (Harrisburg under $24,500; Scranton under $15,600). Always verify via the DCED Address Search for the specific work location.</p>
       </div>
     </div>
     <div class="card">
@@ -538,13 +538,13 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
       <table class="tbl mb14">
         <thead><tr><th>Status</th><th>Rate</th><th>Prior Rate</th></tr></thead>
         <tbody>
-          <tr class="hl"><td><strong>Residents</strong></td><td class="v">3.74% <span style="font-size:.75rem;font-weight:400;color:var(--ink-3)">(Eff. July 1, 2025)</span></td><td style="color:var(--ink-3)">3.75%</td></tr>
-          <tr><td><strong>Non-Residents</strong></td><td class="v">3.43% <span style="font-size:.75rem;font-weight:400;color:var(--ink-3)">(Eff. July 1, 2025)</span></td><td style="color:var(--ink-3)">3.44%</td></tr>
+          <tr class="hl"><td><strong>Residents</strong></td><td class="v">3.735% <span style="font-size:.75rem;font-weight:400;color:var(--ink-3)">(Eff. July 1, 2026)</span></td><td style="color:var(--ink-3)">3.74%</td></tr>
+          <tr><td><strong>Non-Residents</strong></td><td class="v">3.425% <span style="font-size:.75rem;font-weight:400;color:var(--ink-3)">(Eff. July 1, 2026)</span></td><td style="color:var(--ink-3)">3.43%</td></tr>
         </tbody>
       </table>
       <div class="alert alert-amber">
         <div class="alert-title">Rates adjust July 1 each year &mdash; always verify before configuring payroll</div>
-        <p>Philadelphia rates are on a planned multi-year reduction schedule through 2030. The rates shown are effective July 1, 2025. Verify current rates at the Philadelphia Department of Revenue before any payroll setup.</p>
+        <p>Philadelphia rates are on a planned multi-year reduction schedule through 2030. The rates shown are effective July 1, 2026. Verify current rates at the Philadelphia Department of Revenue before any payroll setup.</p>
       </div>
       <a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank" class="link-tile mt8"><span><span class="sub">Philadelphia Dept. of Revenue &middot; Official Source</span>Wage Tax &mdash; Employer Information and Current Rates</span><span class="arr">&rarr;</span></a>
     </div>
@@ -553,16 +553,16 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
       <table class="tbl">
         <thead><tr><th>Scenario</th><th>Rate</th><th>Remit To</th></tr></thead>
         <tbody>
-          <tr><td>Lives and works in Philadelphia</td><td class="v">3.74%*</td><td>Philadelphia</td></tr>
-          <tr><td>Lives in Philly, works outside PA</td><td class="v">3.74%*</td><td>Philadelphia (Act 48)</td></tr>
-          <tr><td>Lives outside Philly, works in Philly</td><td class="v">3.43%*</td><td>Philadelphia</td></tr>
-          <tr><td>Lives in Philly, works in PA (non-Philly)</td><td class="v">3.74%*</td><td>Philadelphia + work-TCD EIT</td></tr>
+          <tr><td>Lives and works in Philadelphia</td><td class="v">3.735%*</td><td>Philadelphia</td></tr>
+          <tr><td>Lives in Philly, works outside PA</td><td class="v">3.735%*</td><td>Philadelphia (Act 48)</td></tr>
+          <tr><td>Lives outside Philly, works in Philly</td><td class="v">3.425%*</td><td>Philadelphia</td></tr>
+          <tr><td>Lives in Philly, works in PA (non-Philly)</td><td class="v">3.735%*</td><td>Philadelphia + work-TCD EIT</td></tr>
         </tbody>
       </table>
-      <p class="muted mt8" style="font-size:.76rem">* Rates effective July 1, 2025. Verify annually at the Philadelphia Dept. of Revenue.</p>
+      <p class="muted mt8" style="font-size:.76rem">* Rates effective July 1, 2026. Verify annually at the Philadelphia Dept. of Revenue.</p>
       <div class="alert alert-amber mt14">
         <div class="alert-title">Act 48 &mdash; Philly residents working elsewhere in PA</div>
-        <p>All PA employers &mdash; including those outside Philadelphia &mdash; must withhold the Philadelphia resident Wage Tax (3.74%, Eff. July 1, 2025) for employees who live in Philadelphia, regardless of where the worksite is located within PA.</p>
+        <p>All PA employers &mdash; including those outside Philadelphia &mdash; must withhold the Philadelphia resident Wage Tax (3.735%, Eff. July 1, 2026) for employees who live in Philadelphia, regardless of where the worksite is located within PA.</p>
       </div>
     </div>
   </div>
@@ -581,7 +581,7 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
         <table class="tbl">
           <tbody>
             <tr><td class="fw6">PA state tax</td><td>Not withheld &mdash; PA-NJ reciprocity. Collect Form REV-419.</td></tr>
-            <tr><td class="fw6">Philly Wage Tax</td><td>Withheld at 3.43%* non-resident. Reciprocity does not cover local taxes.</td></tr>
+            <tr><td class="fw6">Philly Wage Tax</td><td>Withheld at 3.425%* non-resident. Reciprocity does not cover local taxes.</td></tr>
             <tr><td class="fw6">NJ state tax</td><td>Withhold normally</td></tr>
             <tr><td class="fw6">Employee credit</td><td>Employee may claim Schedule NJ-COJ on their personal NJ return</td></tr>
           </tbody>
@@ -592,14 +592,14 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
         <table class="tbl">
           <tbody>
             <tr><td class="fw6">PA state tax</td><td>Not withheld &mdash; PA-MD reciprocity. Collect Form REV-419.</td></tr>
-            <tr><td class="fw6">Philly Wage Tax</td><td>Withheld at 3.43%* non-resident</td></tr>
+            <tr><td class="fw6">Philly Wage Tax</td><td>Withheld at 3.425%* non-resident</td></tr>
             <tr><td class="fw6">MD state tax</td><td>Not withheld &mdash; reciprocity applies</td></tr>
             <tr><td class="fw6">Employee credit</td><td>Employee may claim Form 502CR on their personal MD return</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <p class="muted mt8" style="font-size:.76rem">* Rate effective July 1, 2025. Verify annually.</p>
+    <p class="muted mt8" style="font-size:.76rem">* Rate effective July 1, 2026. Verify annually.</p>
     <div class="alert alert-slate mt14">
       <div class="alert-title">Employee advisory &mdash; personal return action</div>
       <p>The NJ-COJ and MD Form 502CR credits are personal tax return actions taken by the employee at year-end &mdash; not employer withholding adjustments. Inform affected employees to consult their personal tax advisor.</p>
@@ -619,43 +619,48 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
 <!-- ═══ PITTSBURGH ════════════════════════════════════════════ -->
 <div class="page" id="page-pittsburgh">
   <div class="page-header">
-    <div class="tag">Allegheny County &middot; PSD Codes 02xxxx</div>
+    <div class="tag">Allegheny County &middot; PSD 700102 / 730105</div>
     <h1>Pittsburgh Special Rules</h1>
-    <p>Pittsburgh has its own EIT filing structure, LST split, and an employer-side Payroll Expense Tax with no equivalent elsewhere in PA. EIT is collected by Jordan Tax Service.</p>
+    <p>Pittsburgh has its own LST split and an employer-side Payroll Expense Tax with no equivalent elsewhere in PA. The city spans two school districts, so it has two PSD codes with different resident EIT rates and LST splits. EIT is collected by Jordan Tax Service.</p>
   </div>
   <div class="alert alert-amber mb14">
-    <div class="alert-title">Pittsburgh has its own filing and collection structure</div>
-    <p>Pittsburgh-area employers file EIT through Allegheny County's four Tax Collection Districts. The City of Pittsburgh has its own LST forms and portal through the Department of Finance.</p>
+    <div class="alert-title">Two PSD codes for one city &mdash; confirm which applies</div>
+    <p>Most of Pittsburgh is in the Pittsburgh School District (PSD <code>700102</code>, Allegheny Central TCD). The part of the city in the Baldwin-Whitehall School District has its own code (PSD <code>730105</code>, Allegheny Southwest TCD). The city boundary alone does not tell you which applies &mdash; use the DCED Address Search for each home and work address.</p>
   </div>
-  <div class="g2">
-    <div class="card">
-      <div class="card-title">Pittsburgh Tax Rates</div>
-      <table class="tbl">
-        <thead><tr><th>Tax</th><th>Who Pays</th><th>Rate / Amount</th><th>Collected By</th></tr></thead>
-        <tbody>
-          <tr><td>Resident EIT &mdash; City</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">1.00%</td><td>Jordan Tax Service</td></tr>
-          <tr><td>Resident EIT &mdash; School District</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">2.00%</td><td>Jordan Tax Service</td></tr>
-          <tr class="hl"><td><strong>Resident EIT Total</strong></td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">3.00%</td><td>Jordan Tax Service</td></tr>
-          <tr><td>Non-Resident EIT</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">1.00% (city only)</td><td>Jordan Tax Service</td></tr>
-          <tr><td>LST &mdash; City</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$10.00 / year</td><td>Pittsburgh Finance</td></tr>
-          <tr><td>LST &mdash; School District</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$42.00 / year</td><td>Pittsburgh Finance</td></tr>
-          <tr class="hl"><td><strong>LST Total</strong></td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$52.00 / year</td><td>Pittsburgh Finance</td></tr>
-          <tr class="hl"><td><strong>Payroll Expense Tax</strong></td><td><span class="badge b-amber">Employer &mdash; not withheld</span></td><td class="v">0.55% (5.5 mills)</td><td>Pittsburgh Finance</td></tr>
-        </tbody>
-      </table>
+  <div class="card">
+    <div class="card-title">Pittsburgh Tax Rates by PSD Code</div>
+    <div style="overflow-x:auto">
+    <table class="tbl">
+      <thead><tr><th>Tax</th><th>Who Pays</th><th>PSD 700102<br>Pittsburgh S D</th><th>PSD 730105<br>Baldwin-Whitehall S D</th><th>Collected By</th></tr></thead>
+      <tbody>
+        <tr><td>Tax Collection District</td><td>&mdash;</td><td>Allegheny Central</td><td>Allegheny Southwest</td><td>&mdash;</td></tr>
+        <tr><td>Resident EIT &mdash; City</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">1.00%</td><td class="v">1.00%</td><td>Jordan Tax Service</td></tr>
+        <tr><td>Resident EIT &mdash; School District</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">2.00%</td><td class="v">0.50%</td><td>Jordan Tax Service</td></tr>
+        <tr class="hl"><td><strong>Resident EIT Total</strong></td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">3.00%</td><td class="v">1.50%</td><td>Jordan Tax Service</td></tr>
+        <tr><td>Non-Resident EIT</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">1.00% (city only)</td><td class="v">1.00% (city only)</td><td>Jordan Tax Service</td></tr>
+        <tr><td>LST &mdash; Municipal</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$52.00 / year</td><td class="v">$47.00 / year</td><td>Treasurer, City of Pittsburgh</td></tr>
+        <tr><td>LST &mdash; School District</td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$0.00</td><td class="v">$5.00 / year</td><td>Treasurer, City of Pittsburgh</td></tr>
+        <tr class="hl"><td><strong>LST Total</strong></td><td><span class="badge b-dark">Employee (withheld)</span></td><td class="v">$52.00 / year</td><td class="v">$52.00 / year</td><td>Treasurer, City of Pittsburgh</td></tr>
+        <tr><td>LST low-income exemption</td><td>&mdash;</td><td>Under $12,000</td><td>Under $12,000</td><td>&mdash;</td></tr>
+        <tr class="hl"><td><strong>Payroll Expense Tax</strong></td><td><span class="badge b-amber">Employer &mdash; not withheld</span></td><td class="v">0.55% (5.5 mills)</td><td class="v">0.55% (5.5 mills)</td><td>Pittsburgh Finance</td></tr>
+      </tbody>
+    </table>
     </div>
-    <div class="card">
-      <div class="card-title">Key Notes</div>
+    <p class="muted mt8" style="font-size:.76rem">EIT and LST values from the 2026 DCED Official Tax Register. Verify annually.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Key Notes</div>
+    <div class="g2">
       <div class="alert alert-slate">
         <div class="alert-title">Payroll Expense Tax &mdash; employer obligation only</div>
         <p>The 0.55% Payroll Expense Tax is assessed on the employer. It is not withheld from employee wages and does not appear on employee pay stubs. It applies to total gross taxable compensation for employees performing work within Pittsburgh city limits &mdash; separate from and in addition to employee EIT withholding.</p>
       </div>
-      <div class="alert alert-slate mt14">
+      <div class="alert alert-slate">
         <div class="alert-title">Allegheny County &mdash; four TCDs</div>
-        <p>Unlike most PA counties, Allegheny County has four separate Tax Collection Districts. Verify which TCD your Pittsburgh-area worksite falls under via the DCED Address Search.</p>
+        <p>Unlike most PA counties, Allegheny County has four Tax Collection Districts &mdash; Central, North, Southeast and Southwest (PSD prefixes 70&ndash;73). Pittsburgh falls in Central (700102) or Southwest (730105). East Pittsburgh Borough (721005) is a separate municipality, not part of the city.</p>
       </div>
-      <a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms" target="_blank" class="link-tile mt14"><span><span class="sub">City of Pittsburgh &mdash; Dept. of Finance</span>Pittsburgh Tax Forms &mdash; LST, EIT and Payroll Expense Tax</span><span class="arr">&rarr;</span></a>
     </div>
+    <a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms" target="_blank" class="link-tile mt14"><span><span class="sub">City of Pittsburgh &mdash; Dept. of Finance</span>Pittsburgh Tax Forms &mdash; LST, EIT and Payroll Expense Tax</span><span class="arr">&rarr;</span></a>
   </div>
   <div class="disclaimer">For informational use only. Verify all rates at official sources before making payroll configuration decisions.</div>
 </div>
@@ -748,7 +753,7 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
           </div>
         </div>
         <div class="g2 mt14">
-          <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/MW507.pdf" target="_blank" class="link-tile"><span><span class="sub">Maryland Comptroller</span>Form MW507 &mdash; Withholding Exemption Certificate</span><span class="arr">&rarr;</span></a>
+          <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2026/mw507.pdf" target="_blank" class="link-tile"><span><span class="sub">Maryland Comptroller</span>Form MW507 &mdash; Withholding Exemption Certificate</span><span class="arr">&rarr;</span></a>
           <a href="https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf" target="_blank" class="link-tile"><span><span class="sub">Maryland Comptroller &mdash; 2025 Instructions</span>Maryland Tax Instructions (includes Form 515 guidance)</span><span class="arr">&rarr;</span></a>
         </div>
       </div>
@@ -757,18 +762,18 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
       <div class="rule-block mb14">
         <h4>How the PA&ndash;MD Local Exemption Works</h4>
         <p>The PA-MD state reciprocity agreement covers state income tax only. However, certain Pennsylvania TCDs have agreed &mdash; through legal settlements or local ordinance &mdash; to exempt Maryland residents from local nonresident EIT withholding. This is determined TCD by TCD, not statewide.</p>
-        <p style="margin-top:8px;color:rgba(255,255,255,.6);font-size:.83rem">LST is never covered by any PA&ndash;MD local exemption. LST applies to all workers at a PA worksite regardless of TCD exemption status.</p>
+        <p style="margin-top:8px;color:rgba(255,255,255,.6);font-size:.83rem">LST is never covered by any PA&ndash;MD local exemption. LST applies to all workers at a PA worksite that levies it, regardless of TCD exemption status. (Philadelphia levies no LST.)</p>
       </div>
       <table class="tbl mb18">
         <thead><tr><th>Work Location</th><th>PA EIT</th><th>PA LST</th><th>Required Action</th></tr></thead>
         <tbody>
-          <tr><td><strong>Philadelphia (PSD 51xxxx)</strong></td><td><span class="badge b-red">Philly Wage Tax</span></td><td>Philly LST applies</td><td>Apply 3.43%* non-resident. Collect REV-419. Act 32 does not apply.</td></tr>
+          <tr><td><strong>Philadelphia (PSD 51xxxx)</strong></td><td><span class="badge b-red">Philly Wage Tax</span></td><td><span class="badge b-green">No LST</span></td><td>Apply 3.425%* non-resident. Collect REV-419. Act 32 does not apply. Philadelphia levies no LST.</td></tr>
           <tr class="hl"><td><strong>York or Adams County</strong></td><td><span class="badge b-green">Exempt &mdash; 1981 Settlement</span></td><td><span class="badge b-amber">LST Still Applies</span></td><td>Do not withhold EIT. Set Resident PSD = 880000. Withhold LST at work-location rate. Collect REV-419.</td></tr>
           <tr><td><strong>Other TCD with MD exemption</strong></td><td><span class="badge b-blue">Verify with TCD</span></td><td><span class="badge b-amber">LST Still Applies</span></td><td>Contact the work-location collector to confirm. If exempt: suppress EIT, withhold LST.</td></tr>
           <tr><td><strong>All other PA locations</strong></td><td><span class="badge b-dark">Withhold Non-Res. Rate</span></td><td><span class="badge b-amber">LST Applies</span></td><td>Withhold Work Non-Resident EIT + LST. Resident PSD = 880000. Employee may claim MD Form 502CR.</td></tr>
         </tbody>
       </table>
-      <p class="muted mb18" style="font-size:.76rem">* Philadelphia rate effective July 1, 2025. Verify annually.</p>
+      <p class="muted mb18" style="font-size:.76rem">* Philadelphia rate effective July 1, 2026. Verify annually.</p>
       <div class="g2">
         <div class="alert alert-green">
           <div class="alert-title">York and Adams County &mdash; confirmed exemption</div>
@@ -839,12 +844,12 @@ textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(4
     <div class="collector-grid">
       <div class="coll-tile"><h4>Berkheimer Tax Innovations</h4><p>Multiple PA counties &mdash; one of the largest EIT/LST collectors</p><a href="https://www.hab-inc.com/employer-services/" target="_blank">Employer Portal &rarr;</a></div>
       <div class="coll-tile"><h4>Keystone Collections Group</h4><p>Statewide coverage; significant presence in central and western PA</p><a href="https://keystonecollects.com/business/" target="_blank">Employer Portal &rarr;</a></div>
-      <div class="coll-tile"><h4>Jordan Tax Service</h4><p>Southwest Allegheny County &mdash; Pittsburgh area EIT collector</p><a href="https://www.jordantax.com/" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Jordan Tax Service</h4><p>Allegheny Central (Pittsburgh, Mt. Oliver) and Southwest Allegheny County TCDs &mdash; EIT collector</p><a href="https://www.jordantax.com/" target="_blank">Employer Portal &rarr;</a></div>
       <div class="coll-tile"><h4>Tri-State Financial Group</h4><p>Selected southeastern PA jurisdictions</p><a href="http://www.tfgtax.com/" target="_blank">Employer Portal &rarr;</a></div>
       <div class="coll-tile"><h4>Capital Tax Collection Bureau</h4><p>Dauphin County and Capital Region</p><a href="https://captax.com/" target="_blank">Employer Portal &rarr;</a></div>
       <div class="coll-tile"><h4>York Adams Tax Bureau</h4><p>York and Adams Counties &mdash; MD resident EIT exemption applies</p><a href="https://yatb.com/" target="_blank">Employer Portal &rarr;</a></div>
       <div class="coll-tile"><h4>Philadelphia Dept. of Revenue</h4><p>Philadelphia only &mdash; not part of Act 32 TCD structure</p><a href="https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/" target="_blank">Employer Portal &rarr;</a></div>
-      <div class="coll-tile"><h4>Pittsburgh Dept. of Finance</h4><p>City of Pittsburgh LST, EIT, and Payroll Expense Tax</p><a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms" target="_blank">Employer Portal &rarr;</a></div>
+      <div class="coll-tile"><h4>Pittsburgh Dept. of Finance</h4><p>City of Pittsburgh LST and Payroll Expense Tax (Pittsburgh EIT goes to Jordan Tax Service)</p><a href="https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms" target="_blank">Employer Portal &rarr;</a></div>
     </div>
     <div class="alert alert-slate mt14">
       <div class="alert-title">Always verify your assigned collector</div>
@@ -1098,12 +1103,17 @@ function buildResults(d) {
 
   const wPSD = (d.wPSD || '').trim();
   const isPhilly = wPSD.startsWith('51');
-  const isPitt   = wPSD.startsWith('02');
+  // Pittsburgh City has two PSD codes (2026 DCED register); Allegheny County PSDs use prefixes 70-73, not 02.
+  const PITT_PSD = {
+    '700102': 'Pittsburgh S D portion &mdash; Allegheny Central TCD. Resident EIT 3.0% (1% city + 2% school); LST $52 (all municipal).',
+    '730105': 'Baldwin-Whitehall S D portion &mdash; Allegheny Southwest TCD. Resident EIT 1.5% (1% city + 0.5% school); LST $52 ($47 municipal + $5 school district).'
+  };
+  const isPitt   = Object.prototype.hasOwnProperty.call(PITT_PSD, wPSD);
 
   // Alerts
   let alerts = '';
-  if (isPhilly) alerts += `<div class="alert alert-red mb14"><div class="alert-title">Philadelphia &mdash; special rules apply</div><p>This work location is in Philadelphia. Act 32 EIT does not apply. Apply Philadelphia Wage Tax: <strong>Resident 3.74%</strong> / <strong>Non-Resident 3.43%</strong> (Eff. July 1, 2025 &mdash; verify annually). Remit to the Philadelphia Department of Revenue. See the <button onclick="go('philadelphia',document.querySelector('[onclick*=philadelphia]'))" style="background:none;border:none;color:var(--c-red);cursor:pointer;font-weight:600;padding:0;font-size:.84rem;text-decoration:underline">Philadelphia page</button> for full details.</p></div>`;
-  if (isPitt)   alerts += `<div class="alert alert-amber mb14"><div class="alert-title">Pittsburgh &mdash; special rules apply</div><p>This work location is in Pittsburgh. Pittsburgh has its own EIT/LST filing structure. Employers also owe a Payroll Expense Tax of 0.55% on gross payroll &mdash; employer-side only, not withheld from employees. See the <button onclick="go('pittsburgh',document.querySelector('[onclick*=pittsburgh]'))" style="background:none;border:none;color:var(--c-amber);cursor:pointer;font-weight:600;padding:0;font-size:.84rem;text-decoration:underline">Pittsburgh page</button> for full details.</p></div>`;
+  if (isPhilly) alerts += `<div class="alert alert-red mb14"><div class="alert-title">Philadelphia &mdash; special rules apply</div><p>This work location is in Philadelphia. Act 32 EIT does not apply. Apply Philadelphia Wage Tax: <strong>Resident 3.735%</strong> / <strong>Non-Resident 3.425%</strong> (Eff. July 1, 2026 &mdash; verify annually). Remit to the Philadelphia Department of Revenue. Philadelphia levies no LST. See the <button onclick="go('philadelphia',document.querySelector('[onclick*=philadelphia]'))" style="background:none;border:none;color:var(--c-red);cursor:pointer;font-weight:600;padding:0;font-size:.84rem;text-decoration:underline">Philadelphia page</button> for full details.</p></div>`;
+  if (isPitt)   alerts += `<div class="alert alert-amber mb14"><div class="alert-title">Pittsburgh &mdash; special rules apply</div><p>This work location is in Pittsburgh (PSD ${wPSD}): ${PITT_PSD[wPSD]} EIT is remitted to Jordan Tax Service; LST is remitted to the Treasurer, City of Pittsburgh. Employers also owe a Payroll Expense Tax of 0.55% on gross payroll &mdash; employer-side only, not withheld from employees. See the <button onclick="go('pittsburgh',document.querySelector('[onclick*=pittsburgh]'))" style="background:none;border:none;color:var(--c-amber);cursor:pointer;font-weight:600;padding:0;font-size:.84rem;text-decoration:underline">Pittsburgh page</button> for full details.</p></div>`;
   if (totalLST > 10 && muniEx > 0) alerts += `<div class="alert alert-amber mb14"><div class="alert-title">LST low-income exemption may apply</div><p>Combined LST of ${dollar(totalLST)}/year exceeds $10. Employees earning below <strong>${dollar(muniEx)}</strong> in this jurisdiction may be exempt. Make Form LST-E available to qualifying employees before withholding begins. <a href="https://dced.pa.gov/download/taxpayer-application-for-exemption-from-local-services-tax-lst/?wpdmdl=56757" target="_blank">Download Form LST-E &rarr;</a></p></div>`;
 
   // Rate boxes

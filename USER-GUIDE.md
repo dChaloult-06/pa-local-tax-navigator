@@ -12,7 +12,7 @@ The PA Local Tax Navigator is a compliance reference and setup tool for payroll 
 
 - **Look up and interpret DCED address search results** — and turn them into a payroll system setup directive
 - **Understand Act 32 EIT and LST rules** — including the Higher-Of withholding mechanic, LST proration, and low-income exemptions
-- **Navigate Philadelphia and Pittsburgh special rules** — both cities operate outside the standard Act 32 framework
+- **Navigate Philadelphia and Pittsburgh special rules** — Philadelphia operates entirely outside Act 32; Pittsburgh's EIT runs through Act 32, but its LST and Payroll Expense Tax are handled separately by the city
 - **Handle out-of-state employees working in PA** — including the 880000 PSD code, PA–Maryland local exemptions, and courtesy withholding for PA residents working out-of-state
 
 **What this tool does not do:**
@@ -130,8 +130,8 @@ If the work PSD code triggers a special rule, a colored alert appears at the top
 
 | Alert | Meaning |
 |---|---|
-| **Philadelphia** | PSD starts with 51 — standard Act 32 EIT does not apply. Apply Philadelphia Wage Tax instead. |
-| **Pittsburgh** | PSD starts with 02 — Pittsburgh has its own filing structure. Employer also owes Payroll Expense Tax (0.55%). |
+| **Philadelphia** | PSD starts with 51 — standard Act 32 EIT does not apply. Apply Philadelphia Wage Tax instead (3.735% resident / 3.425% non-resident, eff. July 1, 2026). Philadelphia levies no LST. |
+| **Pittsburgh** | Work PSD is 700102 (Pittsburgh S D, Allegheny Central TCD) or 730105 (Baldwin-Whitehall S D, Allegheny Southwest TCD). The alert shows the resident EIT and LST split for that code. Employer also owes Payroll Expense Tax (0.55%). |
 
 ---
 
@@ -155,7 +155,7 @@ If the work PSD code triggers a special rule, a colored alert appears at the top
 ## Glossary
 
 **Act 32**
-Pennsylvania Act 32 of 2008. The statute that standardized local EIT collection into 69 Tax Collection Districts (TCDs), effective January 1, 2012. Philadelphia and Pittsburgh operate outside this framework.
+Pennsylvania Act 32 of 2008. The statute that standardized local EIT collection into 69 Tax Collection Districts (TCDs), effective January 1, 2012. Philadelphia operates outside this framework. Pittsburgh's EIT is collected under Act 32 through the Allegheny Central and Southwest TCDs; only its LST and Payroll Expense Tax are handled separately by the city.
 
 **EIT (Earned Income Tax)**
 Pennsylvania's local earned income tax, levied by municipalities and school districts. Governed by Act 32. Applies to wages, salaries, and net profits from self-employment. Separate from PA state income tax (3.07% flat rate).
@@ -164,7 +164,7 @@ Pennsylvania's local earned income tax, levied by municipalities and school dist
 Act 32's core withholding mechanic: compare the employee's Total Resident EIT Rate to the Work Location Non-Resident EIT Rate and withhold the higher of the two. Remit to the work-location TCD collector.
 
 **LST (Local Services Tax)**
-A flat annual fee for the privilege of working in a jurisdiction. Separate from EIT and governed by its own statute. Based on work location only. Standard maximum is $52/year. Must be prorated across pay periods when the combined rate exceeds $10/year.
+A flat annual fee for the privilege of working in a jurisdiction. Separate from EIT and governed by its own statute. Based on work location only. Standard maximum is $52/year; in the 2026 DCED register only Harrisburg and Scranton exceed it ($156/year). Philadelphia levies no LST. Must be prorated across pay periods when the combined rate exceeds $10/year.
 
 **PSD Code**
 Political Subdivision Code. A six-digit number that uniquely identifies each Pennsylvania municipality and school district. Required for the Residency Certification Form and payroll system configuration. Lookup via the DCED Address Search.
@@ -191,9 +191,11 @@ Certain Pennsylvania TCDs have agreed — through legal settlements or local ord
 
 ## Important Notes on Accuracy
 
-**Philadelphia Wage Tax rates change July 1 each year.** The rates shown in this tool are effective July 1, 2025. Always verify current rates at the [Philadelphia Department of Revenue](https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/) before configuring payroll.
+**Philadelphia Wage Tax rates change July 1 each year.** The rates shown in this tool (3.735% resident / 3.425% non-resident) are effective July 1, 2026. Always verify current rates at the [Philadelphia Department of Revenue](https://www.phila.gov/services/payments-assistance-taxes/taxes/business-taxes/business-taxes-by-type/wage-tax-employers/) before configuring payroll.
 
 **DCED Address Search is the authoritative source for PSD codes and rates.** This tool interprets and explains the DCED output — it does not replace the lookup. Always run the official search for each employee.
+
+**Pittsburgh has two PSD codes.** Most of the city is PSD 700102 (Pittsburgh S D, 3.0% resident EIT, $52 municipal LST). The Baldwin-Whitehall S D portion is PSD 730105 (1.5% resident EIT, $47 municipal + $5 school district LST). Always confirm the code with the DCED Address Search.
 
 **Collector assignments change.** TCDs periodically change or re-bid their collector contracts. If a collector name in the directive doesn't match your existing records, verify via the DCED Address Search or contact the TCD directly.
 
@@ -214,7 +216,7 @@ Certain Pennsylvania TCDs have agreed — through legal settlements or local ord
 | Pittsburgh Tax Forms | [pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms](https://www.pittsburghpa.gov/City-Government/Finance-Budget/Taxes/Tax-Forms) |
 | York Adams Tax Bureau | [yatb.com](https://yatb.com/) |
 | PA Form REV-419 | [revenue.pa.gov/.../rev-419.pdf](https://www.revenue.pa.gov/FormsandPublications/FormsforIndividuals/PIT/Documents/rev-419.pdf) |
-| Maryland Form MW507 | [marylandcomptroller.gov/.../MW507.pdf](https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/MW507.pdf) |
+| Maryland Form MW507 | [marylandcomptroller.gov/.../MW507.pdf](https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2026/mw507.pdf) |
 | Maryland Form 502CR | [marylandcomptroller.gov/.../502cr.pdf](https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502cr.pdf) |
 
 ---
